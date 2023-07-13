@@ -1,0 +1,56 @@
+@use '../../../styles/variable' as variable
+    
+.noteBlock
+  position: relative
+  border: variable.$border-width solid variable.$border-color
+  color: variable.$text-color
+  background: #fff
+  border-radius: variable.$border-radius
+  overflow: hidden
+  margin: .1rem 1.2rem .6rem 1rem
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px
+  &.shadow
+    box-shadow: variable.$border-color 6px 6px 0
+  .title
+    background: variable.$title-bg-color
+    border-bottom: variable.$border-width solid variable.$border-color
+    padding: .8rem  1.5rem
+    font-weight: bold
+    font-size: 20px
+    position: relative
+    .circleDecoration
+      width: 12px
+      height: 12px
+      border-radius: 50%
+      background: #fff
+      position: absolute
+      margin: .4rem 0 0 1.4rem
+      &::after, &::before
+        content: ''
+        width: 100%
+        height: 100%
+        background: #fff
+        border-radius: 50%
+        position: absolute
+      &::after
+        left: 25px
+      &::before
+        left: -25px
+    .titlePos
+      text-align: center
+    .icon
+      position: absolute
+      right: .5rem
+      top: .3rem
+      cursor: pointer
+      padding: .5rem
+      transition: .3s all
+      &:hover
+        opacity: .5
+  .content
+    padding: .8rem  1.5rem
+    display: flex
+  .footer
+    height: 40px
+    border-top: variable.$border-width solid variable.$border-color
+    background: variable.$title-bg-color

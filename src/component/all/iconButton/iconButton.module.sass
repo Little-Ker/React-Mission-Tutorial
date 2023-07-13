@@ -1,0 +1,37 @@
+@use '../../../styles/variable' as variable
+    
+.iconButton
+  position: relative
+  margin: 1rem
+  width: 48px
+  height: 48px
+  cursor: pointer
+  .btnTop, .btnBg
+    width: 100%
+    height: 100%
+    border-radius: 50%
+  .btnTop
+    display: flex
+    justify-content: center
+    align-items: center
+    font-weight: 600
+    letter-spacing: 1px
+    color: variable.$text-color
+    border: 1px solid variable.$text-color
+    background: #ffffff1e
+    position: relative
+    bottom: 0
+    right: 0
+    transition: .2s all
+    font-size: 16px
+    .icon
+      margin-top: .2rem
+  .btnBg
+    position: absolute
+    background: variable.$title-bg-color
+    bottom: -3.5px
+    right: -3.5px
+  &:hover
+    .btnTop
+      bottom: -3px
+      right: -3px

@@ -9,8 +9,6 @@ import {
   addTodo 
 } from '../redux/todoSlice'
 import TodoList from '../component/test/TodoList'
-import Button from '../component/button/Button'
-import BookCard from '../component/bookCard/BookCard'
 
 const ReduxEX = () => {
   const dispatch = useDispatch()
@@ -23,10 +21,7 @@ const ReduxEX = () => {
     <div>
       <h2 style={{marginTop: '30px'}}>Redux 讀改資料</h2>
       <TodoList />
-      <button onClick={() => dispatch(addTodo('test'))}>add</button>
-      <Button title={'網頁設計'} onClickFn={onClickTest} />
-      <BookCard /> 
-            
+      <button onClick={() => dispatch(addTodo('test'))}>add</button>   
     </div>
   )
 }

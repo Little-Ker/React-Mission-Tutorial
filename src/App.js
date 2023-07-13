@@ -6,11 +6,13 @@ import './App.css'
 import Navbar from './component/navbar/Navbar'
 import ViewA from './view/ViewA'
 import ViewB from './view/ViewB'
+import Home from './view/home/Home'
  
 const RouterPage = () => {
   return (
     <Routes>
-      <Route exact path="/" element={<ViewA/>} />
+      <Route exact path="/" element={<Home/>} />
+      <Route exact path="home" element={<Home/>} />
       <Route exact path="viewA" element={<ViewA/>} />
       <Route exact path="viewB" element={<ViewB/>} />
       <Route path="*" element={<ViewA/>} />
