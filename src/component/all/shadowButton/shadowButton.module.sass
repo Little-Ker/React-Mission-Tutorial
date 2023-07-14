@@ -1,13 +1,14 @@
 @use '../../../styles/variable' as variable
     
-.card
+.button
   position: relative
-  margin: 0 .5rem .5rem 0
-  .cardContent, .bg
+  margin: 0 .3rem .3rem 0
+  cursor: pointer
+  .btnTop, .btnBg
     width: 100%
     height: 100%
     border-radius: variable.$border-radius
-  .cardContent
+  .btnTop
     display: flex
     justify-content: center
     align-items: center
@@ -22,9 +23,22 @@
     transition: .2s all
     font-size: 16px
     padding: 0 1rem 0 1.2rem
-  .bg
+    .icon
+      margin-top: .2rem
+    &.iconPos
+      justify-content: space-between
+    .leftBlock
+      display: flex
+      align-items: center
+      .img
+        margin-right: .5rem
+  .btnBg
     position: absolute
     background: variable.$button-bg-color
     border: variable.$btn-border-width solid variable.$border-color
-    bottom: -8px
-    right: -8px
+    bottom: -5px
+    right: -5px
+  &:hover
+    .btnTop
+      bottom: -5px
+      right: -5px

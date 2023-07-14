@@ -1,0 +1,35 @@
+@use '../../../styles/variable' as variable
+    
+.textField
+  position: relative
+  margin: 1.5rem 0
+  .label
+    font-weight: 500
+    color: variable.$text-gray-color
+    background: #fff
+    padding: 0 .3rem
+    position: absolute
+    top: -14px
+    left: 14px
+    font-size: 14px
+    transition: .3s all
+  input
+    border: variable.$btn-border-width solid variable.$text-gray-color
+    padding: .5rem 1.2rem
+    border-radius: 5px
+    font-weight: 500
+    letter-spacing: 2px
+    color: variable.$text-color
+    transition: .3s all
+    font-family: 'Noto Sans TC', sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif
+  &:hover
+    .label
+      color: variable.$text-color
+    input
+      border-color: variable.$text-color
+  &:focus-within
+    .label
+      color: variable.$text-color
+    input
+      border-color: variable.$text-color
+ 

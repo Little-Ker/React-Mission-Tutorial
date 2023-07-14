@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import clsx from 'clsx'
-import styles from './button.module.sass'
+import styles from './shadowButton.module.sass'
 
 export default function Button(props) {
   const { img ,text, onClickFn, icon, width, height } = props
@@ -16,7 +16,7 @@ export default function Button(props) {
       <div className={styles.btnBg}></div>
       <div className={clsx(styles.btnTop, icon && styles.iconPos)}>
         <div className={styles.leftBlock}>
-          <div className={styles.img}>{img}</div>
+          {(img) && (<div className={styles.img}>{img}</div>)}
           <p>{text}</p>
         </div>
         {(icon) && (<div className={styles.icon}>{icon}</div>)}
