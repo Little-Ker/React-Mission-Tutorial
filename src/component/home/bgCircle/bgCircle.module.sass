@@ -1,0 +1,17 @@
+@use '../../../styles/variable' as variable
+@use '../../../styles/main' as main
+    
+.bgCircle
+    position: fixed
+    left: 0
+    top: 0
+    width: 100%
+    height: 100vh
+    z-index: -1
+    background-color: variable.$bg-color
+    .circleA
+        +main.bg-circle(variable.$bg-circle-color, 400px, 85%, -15%)
+    .circleB
+        +main.bg-circle(variable.$bg-circle-color, 1000px, 11%, -20%)
+    .circleC
+        +main.bg-circle(variable.$bg-circle-color, 600px, -5%, 55%)

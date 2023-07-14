@@ -1,7 +1,25 @@
 @use './variable' as variable
 
 .main-blue
-    background-color: variable.$main-blue
+    background-color: variable.$main-color
+
+=bg
+    width: calc(100% - 80px)
+    margin-left: 80px
+    overflow: hidden
+    font-family: "Poppins", sans-serif
+    +variable.mobile
+        width: 100%
+        margin-left: 0
+
+=bg-circle($color, $size, $posX, $posY)
+    position: absolute
+    left: $posX
+    top: $posY
+    width: $size
+    height: $size
+    border-radius: 50%
+    background-color: $color
 
 .bg-fit
     width: 100%
@@ -27,4 +45,4 @@
     margin: auto
     padding: 0 40px
     +variable.mobile
-        padding: 0 15px 
+        padding: 0 15px

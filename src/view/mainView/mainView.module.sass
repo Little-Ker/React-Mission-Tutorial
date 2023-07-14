@@ -1,0 +1,21 @@
+@use '../../styles/variable' as variable
+
+.mainView
+  position: relative
+  width: 100%
+  height: 100vh
+  .header
+    display: flex
+    justify-content: space-between
+    border: variable.$border-width solid variable.$border-color
+    background: #ffffffd2
+    color: variable.$border-color
+    padding: 1rem
+    margin: 0 4rem
+    border-radius: variable.$border-radius
+    width: calc(100% - 8rem)
+    position: absolute
+    top: 4rem
+  .content
+    padding: 0 3rem
+    padding-top: 11rem
