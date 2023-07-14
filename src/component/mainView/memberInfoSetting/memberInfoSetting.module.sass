@@ -1,0 +1,36 @@
+@use '../../../styles/variable' as variable
+
+.memberInfoSetting
+  .infoSetting
+    display: flex
+    flex-direction: column
+    padding: 1rem 1rem
+    .content
+      display: flex
+      align-items: center
+      padding-bottom: 1.5rem
+      border-bottom: variable.$btn-border-width dashed variable.$text-gray-color
+      .photoSetting
+        padding: 1rem .5rem
+        display: flex
+        flex-direction: column
+        .photo
+          margin-bottom: .5rem
+          width: 200px
+          height: 200px
+          margin-top: 1rem
+          border-radius: variable.$border-radius
+          overflow: hidden
+        .uploadBtn
+          margin: 1rem 0 .5rem 0
+          padding: .5rem 1rem
+          border: variable.$btn-border-width solid variable.$text-gray-color
+          color: variable.$text-color
+          font-weight: bold
+          font-size: 16px
+          border-radius: variable.$btn-border-radius
+      .inputSetting
+        margin-left: 2rem
+    .footer
+      align-self: end
+      padding-top: 1.5rem

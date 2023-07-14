@@ -1,0 +1,29 @@
+@use '../../../styles/variable' as variable
+
+.memberInfo
+  width: 360px
+  position: relative
+  margin: .1rem 1.2rem .6rem 1rem
+  .member
+    display: flex
+    justify-content: space-between
+    align-items: center
+    width: 100%
+    .info
+      display: flex
+      align-items: center
+    .photo
+      width: 60px
+      height: 60px
+      border: variable.$border-width solid variable.$border-color
+      border-radius: variable.$border-radius
+      overflow: hidden
+      img
+        width: 100%
+        height: 100%
+        object-fit: cover
+    .name
+      font-size: 24px
+      font-weight: bold
+      margin-left: 1rem
+      letter-spacing: 2px
