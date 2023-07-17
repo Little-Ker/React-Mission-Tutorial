@@ -41,19 +41,22 @@ function MemberInfoSetting(props) {
         <div className={styles.photo}>
           <img className={'img-fit'} src={imgSrc} alt="" />
         </div>
-        <Button
-          className={styles.uploadBtn}
-          type="file"
-          component="label"
-        >
-          {'上傳圖片'}
-          <input
-            type={'file'}
-            accept="image/*"
-            style={{ display: 'none' }}
-            onChange={onFileUpload}
-          />
-        </Button>
+        <a>
+          <Button
+            className={styles.uploadBtn}
+            type="file"
+            component="label"
+            sx={{ ':hover': { cursor: 'none' } }}
+          >
+            {'上傳圖片'}
+            <input
+              type={'file'}
+              accept="image/*"
+              style={{ display: 'none' }}
+              onChange={onFileUpload}
+            />
+          </Button>
+        </a>
       </div>
     )
   }, [imgSrc])

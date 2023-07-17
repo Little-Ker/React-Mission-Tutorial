@@ -8,12 +8,14 @@ export default function IconButton(props) {
 
   return (
     <Tooltip title={tipText} placement="bottom-start">
-      <div className={styles.iconButton} onClick={onClickFn}>
-        <div className={styles.btnBg}></div>
-        <div className={styles.btnTop}>
-          <div className={styles.icon}>{icon}</div>
+      <a>
+        <div className={styles.iconButton} onClick={onClickFn}>
+          <div className={styles.btnBg}></div>
+          <div className={styles.btnTop}>
+            <div className={styles.icon}>{icon}</div>
+          </div>
         </div>
-      </div>
+      </a> 
     </Tooltip>
   )
 }

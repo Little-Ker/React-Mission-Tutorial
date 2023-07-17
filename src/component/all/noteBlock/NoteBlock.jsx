@@ -18,7 +18,10 @@ function NoteBlock(props) {
       <div className={styles.title}>
         {(isCircleDecoration) && (<div className={styles.circleDecoration} />)}
         <p className={clsx(isCircleDecoration && styles.titlePos)}>{title}</p>
-        {(icon) && (<div onClick={iconFn} className={styles.icon}>{icon}</div>)}
+        {(icon) && (
+          <a>
+            <div onClick={iconFn} className={styles.icon}>{icon}</div>
+          </a>)}
       </div>
       <div className={styles.content} style={{ maxHeight }}>
         {content}

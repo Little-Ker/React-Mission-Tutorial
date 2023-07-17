@@ -7,21 +7,23 @@ export default function Button(props) {
   const { img ,text, onClickFn, icon, width, height } = props
 
   return (
-    <div className={styles.button}
-      style={{
-        width,
-        height,
-      }}
-      onClick={onClickFn}>
-      <div className={styles.btnBg}></div>
-      <div className={clsx(styles.btnTop, icon && styles.iconPos)}>
-        <div className={styles.leftBlock}>
-          {(img) && (<div className={styles.img}>{img}</div>)}
-          <p>{text}</p>
+    <a>
+      <div className={styles.button}
+        style={{
+          width,
+          height,
+        }}
+        onClick={onClickFn}>
+        <div className={styles.btnBg}></div>
+        <div className={clsx(styles.btnTop, icon && styles.iconPos)}>
+          <div className={styles.leftBlock}>
+            {(img) && (<div className={styles.img}>{img}</div>)}
+            <p>{text}</p>
+          </div>
+          {(icon) && (<div className={styles.icon}>{icon}</div>)}
         </div>
-        {(icon) && (<div className={styles.icon}>{icon}</div>)}
       </div>
-    </div>
+    </a>
   )
 }
 
