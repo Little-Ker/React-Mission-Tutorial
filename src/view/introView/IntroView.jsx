@@ -3,37 +3,37 @@ import React, {
 } from 'react'
 import AOS from 'aos'
 import Dialog from '@mui/material/Dialog'
-import NoteBlock from '../../../component/all/noteBlock/NoteBlock'
-import ShadowButton from '../../../component/all/shadowButton/ShadowButton'
+import NoteBlock from '../../component/all/noteBlock'
+import ShadowButton from '../../component/all/shadowButton'
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight'
 import clsx from 'clsx'
 import Typewriter from 'typewriter-effect'
-import Universe from '../../../component/introView/universe'
-import Target from '../../../component/introView/target'
-import styles from './intro.module.sass'
-
-import welcome from '../../../assets/image/intro/welcome.png'
-import react from '../../../assets/image/intro/react.png'
-
-function Intro(props) {
+import Universe from '../../component/introView/universe'
+import Target from '../../component/introView/target'
+import styles from './introView.module.sass'
+  
+import welcome from '../../assets/image/intro/welcome.png'
+import react from '../../assets/image/intro/react.png'
+  
+function IntroView() {
   const [open, onClose] = useState(true)
   const [step, setStep] = useState(0)
-
+  
   useEffect(() => {
     AOS.init({ duration: 600 })
   }, [])
-
+  
   const handleClose = useCallback(() => {
     onClose(false)
   }, [])
-
+  
   const handleNext = useCallback(() => {
     setStep((prev) => {
       if ((prev + 1) > 3) return prev
       return prev + 1
     })
   }, [])
-
+  
   const PreviewB = useCallback(() => {
     return (
       <div className={clsx(styles.intro, styles.previewB)}>
@@ -46,7 +46,7 @@ function Intro(props) {
             <p>{'合併接下來提及的工具與套件'}</p>
             <p>{'製作一個屬於你/妳的「'}
               <span className={styles.keyword}>
-                &nbsp;{'自我介紹網頁'}&nbsp;
+                  &nbsp;{'自我介紹網頁'}&nbsp;
               </span>
               {'」'}</p>
             <p>{'順便親近一下你未來吃飯的傢伙 - '}
@@ -67,7 +67,7 @@ function Intro(props) {
       </div>
     )
   }, [])
-
+  
   const PreviewA = useCallback(() => {
     return (
       <div className={styles.intro}>
@@ -79,7 +79,7 @@ function Intro(props) {
             <div className={styles.introText}>
               <p>{'在通過'}</p>
               <div className={styles.keyword}>
-                &nbsp;{' 三個月試用期 '}&nbsp;
+                  &nbsp;{' 三個月試用期 '}&nbsp;
               </div>
               <p>{'後'}</p>
             </div>
@@ -98,7 +98,7 @@ function Intro(props) {
       </div>
     )
   }, [])
-
+  
   const Introduce = useCallback(() => {
     return (
       <div className={styles.intro}>
@@ -133,20 +133,20 @@ function Intro(props) {
       </div>
     )
   }, [])
-
+  
   const showWindow = useMemo(() => {
     if(step === 0) return (<Introduce />)
     if(step === 1) return (<PreviewA />)
     if(step === 2) return (<PreviewB />)
     if(step >= 3) return (<Target handleClose={handleClose}/>)
   }, [step])
-
+  
   const noteTitle = useMemo(() => {
     if(step === 0) return 'Intro'
     if(step === 3) return 'Target'
     return 'Preview'
   }, [step])
-  
+    
   return (
     <Dialog
       open={open}
@@ -165,5 +165,5 @@ function Intro(props) {
     </Dialog>
   )
 }
-
-export default Intro
+  
+export default IntroView

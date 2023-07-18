@@ -7,7 +7,7 @@ import 'aos/dist/aos.css'
 import AnimatedCursor from 'react-animated-cursor'
 import ViewA from './view/ViewA'
 import ViewB from './view/ViewB'
-import Home from './view/home/Home'
+import Home from './view/home'
  
 const RouterPage = () => {
   return (
