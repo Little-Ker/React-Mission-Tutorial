@@ -2,7 +2,7 @@ import React from 'react'
 import {
   BrowserRouter as Router, Route, Routes 
 } from 'react-router-dom'
-import './App.css'
+import './App.sass'
 import AnimatedCursor from 'react-animated-cursor'
 import ViewA from './view/ViewA'
 import ViewB from './view/ViewB'

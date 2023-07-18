@@ -1,0 +1,14 @@
+@use './styles/variable' as variable
+  
+.App 
+  text-align: left
+
+*::-webkit-scrollbar
+  width: .6rem
+*::-webkit-scrollbar-track
+  background-color: rgba(variable.$bg-color, .7)
+  border-left: variable.$border-width solid rgba(variable.$border-color,1)
+*::-webkit-scrollbar-thumb
+  background-color: rgba(variable.$border-color,1)
+*::-webkit-scrollbar-thumb:hover
+  background-color: rgba(variable.$border-color,0.5)
