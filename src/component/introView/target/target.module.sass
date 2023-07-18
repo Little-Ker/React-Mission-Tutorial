@@ -1,0 +1,52 @@
+@use '../../../styles/variable' as variable
+
+.target
+  padding: 2rem 4rem
+  width: 900px
+  height: 520px
+  max-height: 520px
+  max-width: 900px
+  letter-spacing: 1px
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  color: variable.$text-black-color
+  font-weight: bold
+  .title
+    font-size: 20px
+  .missionsList
+    padding: .5rem 0
+    .mission
+      display: flex
+      align-items: flex-start
+      margin: 1.2rem 0
+      .index
+        width: 40px
+        height: 40px
+        display: flex
+        align-items: center
+        justify-content: center
+        background: variable.$border-color
+        color: #fff
+        position: relative
+        margin: .2rem 2rem .5rem 0
+        border-radius: variable.$border-radius
+        &::before
+          content: ''
+          width: 100%
+          height: 100%
+          border: variable.$btn-border-width solid variable.$border-color
+          position: absolute
+          left: 5px
+          top: 5px
+          border-radius: variable.$border-radius
+      .subTitle
+        font-size: 18px
+        margin-bottom: .2rem
+      .content
+        font-size: 16px
+        color: lighten(variable.$text-black-color, 20%)
+        font-weight: 500
+  .btn
+    align-self: flex-end
+    padding: .3rem

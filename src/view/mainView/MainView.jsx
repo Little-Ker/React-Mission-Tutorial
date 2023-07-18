@@ -4,6 +4,7 @@ import {
 } from 'date-fns'
 import Navbar from '../../component/mainView/navbar/Navbar'
 import MemberInfo from '../../component/mainView/memberInfo/MemberInfo'
+import Intro from '../../component/introView/intro'
 import styles from './mainView.module.sass'
 
 const monthList = {
@@ -36,6 +37,7 @@ const MainView = () => {
       <div className={styles.content}>
         <MemberInfo />
       </div>
+      <Intro />
     </div>
   )
 }

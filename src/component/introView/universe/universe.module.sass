@@ -1,0 +1,60 @@
+@use '../../../styles/variable' as variable
+    
+.universeBg
+  border: variable.$border-width solid variable.$border-color
+  box-shadow: inset 0px 0px 4px 2px rgba(variable.$border-color ,0.4)
+  border-radius: variable.$border-radius
+  position: relative
+  min-height: 450px
+  width: 420px
+  .bgDecoration
+    opacity: .3
+    position: absolute
+  .rocket
+    width: 100px
+    height: 100px
+    left: 10px
+    transform: rotate(20deg)
+  .telescope
+    width: 100px
+    height: 100px
+    bottom: -12px
+  .star
+    width: 35px
+    height: 35px
+  .planetBlock
+    position: relative
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-flow: row-reverse
+    margin: 3rem 0 0 3rem
+    .planet
+      display: flex
+      flex-direction: column
+      align-items: center
+      .title
+        color: darken(variable.$text-black-color, 10%)
+        font-size: 20px
+        font-weight: bold
+        margin: 0 0 -25px 30px
+    .membersList
+      position: relative
+      .member
+        border: 2px solid darken(variable.$text-black-color, 5%)
+        color: darken(variable.$text-black-color, 10%)
+        font-weight: bold
+        padding: 0 .3rem
+        border-radius: variable.$btn-border-radius
+        margin: .7rem 0
+        position: relative
+        text-align: center
+        width: 60px
+      .member:nth-child(1)
+        left: -12px
+      .member:nth-child(2)
+        left: 15px
+      .member:nth-child(3)
+        left: -7px
+      .member:nth-child(4)
+        left: 20px

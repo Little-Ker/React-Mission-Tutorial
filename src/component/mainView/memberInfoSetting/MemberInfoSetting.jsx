@@ -68,6 +68,7 @@ function MemberInfoSetting(props) {
 
     const handleSubmit = () => {
       console.log('SubmitData:', name, mail, work, imgSrc)
+      handleClose()
     }
 
     return (

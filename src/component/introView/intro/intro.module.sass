@@ -1,0 +1,43 @@
+@use '../../../styles/variable' as variable
+    
+.intro
+  display: flex
+  align-items: center
+  justify-content: space-between
+  padding: 1rem 3.5rem
+  width: 900px
+  height: 520px
+  max-height: 520px
+  max-width: 900px
+  .leftBlock
+    padding: 1rem
+    .photo
+      width: 370px
+  .rightBlock
+    min-width: 200px
+    height: 100%
+    margin-left: 1rem
+    padding: 1rem
+    font-size: 18px
+    line-height: 2.4
+    font-weight: bold
+    letter-spacing: 1px
+    color: variable.$text-black-color
+    display: flex
+    flex-direction: column
+    .content
+      display: flex
+      flex-direction: column
+      height: 100%
+      justify-content: center
+      .keyword
+        color: variable.$border-color
+      .introText
+        display: flex
+        align-items: center
+        justify-content: flex-start
+    .nextBtn
+      align-self: flex-end
+  &.previewB
+    .rightBlock
+      margin-left: .8rem  
