@@ -1,6 +1,7 @@
 import React, {
-  useCallback, useMemo, useState
+  useCallback, useMemo, useState, useEffect
 } from 'react'
+import AOS from 'aos'
 import Dialog from '@mui/material/Dialog'
 import NoteBlock from '../../../component/all/noteBlock/NoteBlock'
 import ShadowButton from '../../../component/all/shadowButton/ShadowButton'
@@ -18,6 +19,10 @@ function Intro(props) {
   const [open, onClose] = useState(true)
   const [step, setStep] = useState(0)
 
+  useEffect(() => {
+    AOS.init({ duration: 600 })
+  }, [])
+
   const handleClose = useCallback(() => {
     onClose(false)
   }, [])
@@ -33,7 +38,7 @@ function Intro(props) {
     return (
       <div className={clsx(styles.intro, styles.previewB)}>
         <div className={styles.leftBlock}>
-          <img src={react} className={styles.photo} alt="" />
+          <img data-aos="zoom-in" src={react} className={styles.photo} alt="" />
         </div>
         <div className={styles.rightBlock}>
           <div className={styles.content}>
@@ -67,7 +72,7 @@ function Intro(props) {
     return (
       <div className={styles.intro}>
         <div className={styles.leftBlock}>
-          <img src={welcome} className={styles.photo} alt="" />
+          <img data-aos="zoom-in" src={welcome} className={styles.photo} alt="" />
         </div>
         <div className={styles.rightBlock}>
           <div className={styles.content}>
@@ -97,7 +102,7 @@ function Intro(props) {
   const Introduce = useCallback(() => {
     return (
       <div className={styles.intro}>
-        <div className={styles.leftBlock}>
+        <div data-aos="zoom-in" className={clsx('animate__animated', styles.leftBlock)}>
           <Universe />
         </div>
         <div className={styles.rightBlock}>
@@ -109,12 +114,11 @@ function Intro(props) {
                   onInit={(typewriter) => {
                     typewriter
                       .pauseFor(1800)
-                      .typeString('弈樂網頁前端')
+                      .typeString('弈樂網頁前端團隊')
                       .start()
                   }}
                 />
               </div>
-              <p>{'團隊'}</p>
             </div>
           </div>
           <div className={styles.nextBtn}>
