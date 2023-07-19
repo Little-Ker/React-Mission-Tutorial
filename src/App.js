@@ -1,6 +1,8 @@
-import React from 'react'
+import React, {
+  useEffect 
+} from 'react'
 import {
-  BrowserRouter as Router, Route, Routes 
+  BrowserRouter as Router, Route, Routes, useNavigate
 } from 'react-router-dom'
 import './App.sass'
 import 'aos/dist/aos.css'
@@ -8,8 +10,14 @@ import AnimatedCursor from 'react-animated-cursor'
 import ViewA from './view/ViewA'
 import ViewB from './view/ViewB'
 import Home from './view/home'
- 
+
 const RouterPage = () => {
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    navigate('/home?Intro', { replace: true })
+  }, [])
+
   return (
     <Routes>
       <Route exact path="/" element={<Home/>} />

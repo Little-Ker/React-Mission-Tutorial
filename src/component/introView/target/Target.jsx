@@ -1,6 +1,9 @@
 import React, {
-  useEffect
+  useEffect, useCallback
 } from 'react'
+import {
+  useNavigate 
+} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import AOS from 'aos'
 import ShadowButton from '../../../component/all/shadowButton/ShadowButton'
@@ -9,6 +12,12 @@ import styles from './target.module.sass'
 
 function Target(props) {
   const { handleClose } = props
+  const navigate = useNavigate()
+
+  const closeIntroHandler = useCallback(() => {
+    handleClose()
+    navigate('/home', { replace: true })
+  }, [])
 
   useEffect(() => {
     AOS.init({ duration: 600 })
@@ -34,7 +43,7 @@ function Target(props) {
         <ShadowButton 
           text={'接受任務'}
           width={'180px'}
-          onClickFn={handleClose}
+          onClickFn={closeIntroHandler}
         />
       </div>
     </div>

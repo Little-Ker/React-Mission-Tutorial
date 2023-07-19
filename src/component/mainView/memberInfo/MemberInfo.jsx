@@ -1,6 +1,9 @@
 import React, {
-  useMemo, useState
+  useMemo, useState, useEffect
 } from 'react'
+import {
+  useNavigate 
+} from 'react-router-dom'
 import styles from './memberInfo.module.sass'
 import NoteBlock from '../../../component/all/noteBlock/NoteBlock'
 import IconButton from '../../../component/all/iconButton/IconButton'
@@ -8,14 +11,23 @@ import SettingsIcon from '@mui/icons-material/Settings'
 import MemberInfoSetting from '../../../component/mainView/memberInfoSetting/MemberInfoSetting'
 
 export default function MemberInfo() {
+  const navigate = useNavigate()
+
   const photoTest = 'https://cdn4.buysellads.net/uu/1/127419/1670531697-AdobeTeams.jpg'
   const [open, setOpen] = useState(false)
 
   const handleClickOpen = () => {
-    setOpen(true)
+    navigate('/home?MemberInfo', { replace: true })
   }
 
+  useEffect(() => {
+    if (location.search === '?MemberInfo') {
+      setOpen(true)
+    }
+  }, [location?.search])
+
   const handleClose = () => {
+    navigate('/home', { replace: true })
     setOpen(false)
   }
 

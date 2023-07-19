@@ -1,6 +1,9 @@
 import React, {
   useCallback, useMemo, useState, useEffect
 } from 'react'
+import {
+  useLocation 
+} from 'react-router-dom'
 import AOS from 'aos'
 import Dialog from '@mui/material/Dialog'
 import NoteBlock from '../../component/all/noteBlock'
@@ -16,15 +19,23 @@ import welcome from '../../assets/image/intro/welcome.png'
 import react from '../../assets/image/intro/react.png'
   
 function IntroView() {
-  const [open, onClose] = useState(true)
+  const location = useLocation()
+
+  const [open, setOpen] = useState(false)
   const [step, setStep] = useState(0)
+
+  useEffect(() => {
+    if (location.search === '?Intro') {
+      setOpen(true)
+    }
+  }, [location?.search])
   
   useEffect(() => {
     AOS.init({ duration: 600 })
   }, [])
   
   const handleClose = useCallback(() => {
-    onClose(false)
+    setOpen(false)
   }, [])
   
   const handleNext = useCallback(() => {
