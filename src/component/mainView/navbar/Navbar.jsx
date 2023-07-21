@@ -21,7 +21,7 @@ const linkList = [
   },
   {
     name: '參考資料',
-    to: '/viewB',
+    to: '/home?Resource',
     icon: <ManageSearchIcon />,
   },
 ]
