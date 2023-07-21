@@ -4,21 +4,18 @@ import clsx from 'clsx'
 import styles from './basicButton.module.sass'
 
 export default function BasicButton(props) {
-  const { img ,text, onClickFn, icon, width, height } = props
+  const { img ,text, onClickFn, icon, style } = props
 
   return (
     <a>
       <div className={styles.button}
-        style={{
-          width,
-          height,
-        }}
+        style={style}
         onClick={onClickFn}>
         <div className={styles.btnBg}></div>
-        <div className={clsx(styles.btnTop, icon && styles.iconPos)}>
+        <div className={clsx(styles.btnTop, icon && (text || img) && styles.iconPos)}>
           <div className={styles.leftBlock}>
-            <div className={styles.img}>{img}</div>
-            <p>{text}</p>
+            {(img) && (<div className={styles.img}>{img}</div>)}
+            {(text) && (<p>{text}</p>)}
           </div>
           {(icon) && (<div className={styles.icon}>{icon}</div>)}
         </div>
@@ -32,15 +29,13 @@ BasicButton.propTypes = {
   text: PropTypes.string,
   onClickFn: PropTypes.func,
   icon: PropTypes.node,
-  width: PropTypes.string,
-  height: PropTypes.string,
+  style: PropTypes.object,
 }
   
 BasicButton.defaultProps = {
   img: null,
-  text: 'Default',
+  text: null,
   onClickFn: () => {},
   icon: null,
-  width: 'auto',
-  height: '48px',
+  style: {},
 }

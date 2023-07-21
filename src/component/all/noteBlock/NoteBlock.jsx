@@ -4,16 +4,13 @@ import clsx from 'clsx'
 import styles from './noteBlock.module.sass'
 
 function NoteBlock(props) {
-  const { title, content, shadow, width, maxHeight, icon, iconFn, isCircleDecoration, isFooter } = props
+  const { title, content, shadow, style, icon, iconFn, isCircleDecoration, isFooter } = props
   return (
     <div
       className={
         clsx(styles.noteBlock, shadow && styles.shadow)
       }
-      style={{
-        width,
-        maxHeight,
-      }}
+      style={style}
     >
       <div className={styles.title}>
         {(isCircleDecoration) && (<div className={styles.circleDecoration} />)}
@@ -23,7 +20,7 @@ function NoteBlock(props) {
             <div onClick={iconFn} className={styles.icon}>{icon}</div>
           </a>)}
       </div>
-      <div className={styles.content} style={{ maxHeight }}>
+      <div className={styles.content}>
         {content}
       </div>
       {(isFooter) && (<div className={styles.footer} />)}
@@ -35,8 +32,7 @@ NoteBlock.propTypes = {
   title: PropTypes.string,
   content: PropTypes.node,
   shadow: PropTypes.bool,
-  maxHeight: PropTypes.string,
-  width: PropTypes.string,
+  style: PropTypes.object,
   icon: PropTypes.node,
   iconFn: PropTypes.func,
   isCircleDecoration: PropTypes.bool,
@@ -47,8 +43,7 @@ NoteBlock.defaultProps = {
   title: 'title',
   content: null,
   shadow: false,
-  maxHeight: 'auto',
-  width: 'auto',
+  style: {},
   icon: null,
   iconFn: () => {},
   isCircleDecoration: false,
