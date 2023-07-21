@@ -16,7 +16,7 @@ const linkList = [
   },
   {
     name: '通訊錄',
-    to: '/viewB',
+    to: '/home?AddressBook',
     icon: <CallIcon />,
   },
   {

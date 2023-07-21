@@ -1,0 +1,50 @@
+@use '../../../styles/variable' as variable
+    
+.addressBook
+  padding: 2rem
+  height: 460px
+  width: 320px
+  position: relative
+  .title
+    color: variable.$sub-text-color
+    font-weight: bold
+    text-align: center
+    letter-spacing: 1px
+    font-size: 18px
+    margin-bottom: 1.8rem
+  .addressList
+    .address
+      margin: 1rem 0
+  .overlay
+    width: 100%
+    height: 100%
+    background: #000000a4
+    position: absolute
+    top: 0
+    left: 0
+    opacity: 0
+    display: none
+    .line
+      width: 80%
+      height: 100%
+      background: #fff
+      position: absolute
+      right: -80%
+      transition: .3s all
+      border-left: variable.$border-width solid variable.$border-color
+      box-shadow: -4px 0px 4px rgba(0, 0, 0, 0.20)
+      .header
+        border-bottom: variable.$border-width solid variable.$border-color
+        padding: .5rem
+      .content
+        height: calc(100% - 65px)
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        .text
+          font-weight: bold
+          font-size: 1.5rem
+        img
+          width: 50%
+          margin: .7rem 0 1.5rem 0
