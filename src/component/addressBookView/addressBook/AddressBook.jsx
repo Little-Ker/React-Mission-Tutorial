@@ -46,6 +46,10 @@ function AddressBook() {
     }).to('#line',{
       duration: .2,
       right: 0,
+      onComplete: () => {
+        tl.kill()
+        tl = null
+      },
     })
   }, [])
 
@@ -58,6 +62,10 @@ function AddressBook() {
       duration: .1,
       opacity: 0,
       display: 'none',
+      onComplete: () => {
+        tl.kill()
+        tl = null
+      },
     })
   }, [])
   
@@ -66,7 +74,7 @@ function AddressBook() {
       <p className={styles.title}>{'- 新手求救召喚石 -'}</p>
       <div className={styles.addressList}>
         {data.list.map((cur, index) => (
-          <div key={cur.name} className={styles.address} data-aos="fade-right" data-aos-delay={150 * index}>
+          <div key={cur.name} className={styles.address} data-aos="fade-right" data-aos-delay={150 * (index + 1)}>
             <ShadowButton
               text={cur.name}
               icon={<AddIcon />}

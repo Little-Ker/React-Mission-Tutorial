@@ -8,6 +8,11 @@ import Dialog from '@mui/material/Dialog'
 import CloseIcon from '@mui/icons-material/Close'
 import NoteBlock from '../../component/all/noteBlock'
 import AddressBook from '../../component/addressBookView/addressBook'
+import Slide from '@mui/material/Slide'
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="down" ref={ref} {...props} />
+})
       
 function AddressBookView() {
   const navigate = useNavigate()
@@ -28,6 +33,7 @@ function AddressBookView() {
     <Dialog
       open={open}
       onClose={handleClose}
+      TransitionComponent={Transition}
       PaperProps={{ style: {
         backgroundColor: 'transparent',
         maxWidth: 'none',
