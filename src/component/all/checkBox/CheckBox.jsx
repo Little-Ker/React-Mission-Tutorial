@@ -6,21 +6,21 @@ import clsx from 'clsx'
 import styles from './checkBox.module.sass'
 
 function CheckBox(props) {
-  const { check, setCheck, text, isCheckChangeColor } = props
+  const { check, setCheck, text, isCheckChangeColor, style, circleStyle, checkStyle } = props
 
   const onChangeFn = useCallback(() => {
     setCheck(!check)
   }, [check, setCheck])
 
-  console.log('isCheckChangeColor',isCheckChangeColor)
-
   return (
-    <div onClick={onChangeFn} className={clsx(styles.checkBox, check && styles.check, isCheckChangeColor && styles.changeColor)}>
-      <div className={styles.button}>
-        {check && (<div className={styles.gou} />)}
+    <a>
+      <div onClick={onChangeFn} style={style} className={clsx(styles.checkBox, check && styles.check, isCheckChangeColor && styles.changeColor)}>
+        <div className={styles.button} style={circleStyle}>
+          {check && (<div style={checkStyle} className={styles.gou} />)}
+        </div>
+        {(text) && (<p className={styles.text}>{text}</p>)}
       </div>
-      <p className={styles.text}>{text}</p>
-    </div>
+    </a>
   )
 }
 
@@ -29,13 +29,19 @@ CheckBox.propTypes = {
   setCheck: PropTypes.func,
   text: PropTypes.string,
   isCheckChangeColor: PropTypes.bool,
+  circleStyle: PropTypes.object,
+  checkStyle: PropTypes.object,
+  style: PropTypes.object,
 }
 
 CheckBox.defaultProps = {
   check: false,
   setCheck: () => {},
-  text: 'Default',
+  text: null,
   isCheckChangeColor: false,
+  circleStyle: {},
+  checkStyle: {},
+  style: {},
 }
 
 export default CheckBox

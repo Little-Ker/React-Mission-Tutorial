@@ -29,5 +29,5 @@ IconButton.propTypes = {
 IconButton.defaultProps = {
   onClickFn: () => {},
   icon: null,
-  tipText: 'Default',
+  tipText: null,
 }
