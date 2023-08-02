@@ -1,0 +1,25 @@
+@use '../../../styles/variable' as variable
+
+.progress
+  box-shadow: inset 0 1px 2px rgb(0 0 0 / 10%)
+  border-radius: variable.$border-radius
+  overflow: hidden
+  background-color: rgba(variable.$border-color, 0.3)
+  border-bottom: 1px solid lighten(variable.$border-color, 60%)
+  margin-top: 3px
+  letter-spacing: 1px
+  padding: 2px
+  border: 1px solid variable.$border-color
+  background: #fff
+  .progressBar
+    min-width: 2em
+    border-radius: variable.$border-radius 0 0 variable.$border-radius
+    background-color: variable.$border-color
+    color: #fff
+    text-align: center
+    font-size: 14px
+    transition: .3s all
+    box-shadow: inset 0px -4px 5px rgba(variable.$text-color, 0.25)
+  &.completeBar
+    .progressBar
+      border-radius: variable.$border-radius
