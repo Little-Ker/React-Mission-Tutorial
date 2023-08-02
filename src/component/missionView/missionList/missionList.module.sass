@@ -1,0 +1,69 @@
+@use '../../../styles/variable' as variable
+
+.missionList
+  padding: 2rem 3rem
+  display: flex
+  flex-direction: column
+  width: 100%
+  max-width: 1280px
+  min-width: 1280px
+  position: relative
+  .buttonList
+    display: flex
+    align-self: flex-end
+    .filterBtn
+      margin-right: 1rem
+      display: flex
+      .filterOverlay
+        position: relative
+        left: 20px
+        overflow: hidden
+      .filter
+        display: flex
+        align-items: center
+        border: 1px solid variable.$text-color
+        position: relative
+        height: 40px
+        padding-right: 1.7rem
+        border-radius: 8px 0 0 8px
+        border-right: none
+        top: 10px
+        transition: .3s all
+        left: 270px
+        visibility: hidden
+        &.showFilter
+          left: 1px
+          visibility: visible
+        .title
+          position: absolute
+          background: #fff
+          top: -0.9rem
+          left: .7rem
+          padding: 0 .3rem
+          font-weight: 500
+          letter-spacing: 1px
+          font-size: 14px
+  .missionSwiper
+    position: relative
+    margin: 2rem 0 1rem 0
+    min-height: 568px
+  .swiper
+  .swiperSlide
+    text-align: center
+    font-size: 18px
+    display: flex
+    position: relative
+    justify-content: center
+    align-items: center
+    transition: .5s all
+  .swiperButton
+    position: absolute
+    left: -25px
+    top: calc(50% - 50px)
+    transition: .3s all
+    &.swiperNextBtn
+      left: auto
+      right: -25px
+      transform: rotate(180deg)
+    &:hover
+      opacity: .7

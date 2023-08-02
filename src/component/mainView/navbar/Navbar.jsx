@@ -17,7 +17,7 @@ const linkList = [
   },
   {
     name: '前端任務',
-    to: '/viewA',
+    to: '/home?Mission',
     icon: <FactCheckIcon />,
   },
   {

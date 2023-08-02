@@ -5,6 +5,7 @@ import MainView from '../mainView'
 import ResourceView from '../resourceView'
 import AddressBookView from '../addressBookView'
 import PersonalWebsiteView from '../personalWebsiteView'
+import MissionView from '../missionView'
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       <ResourceView />
       <AddressBookView />
       <PersonalWebsiteView />
+      <MissionView />
     </div>
   )
 }

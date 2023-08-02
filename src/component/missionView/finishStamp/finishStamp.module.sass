@@ -1,0 +1,41 @@
+.finishStamp
+  width: 70px
+  height: 70px
+  border-radius: 50%
+  background: #A2FFC2
+  position: absolute
+  color: #215240
+  display: flex
+  justify-content: center
+  align-items: center
+  font-size: 14px
+  left: 15px
+  top: 20px
+  opacity: 0
+  transform: rotate(0deg)
+  &::before
+    content: ''
+    width: 70px
+    height: 70px
+    border: 1px solid #13b378
+    position: absolute
+    left: 3px
+    bottom: 3px
+    border-radius: 50%
+  p
+    margin-bottom: 5px
+    position: relative
+    left: 3px
+    bottom: 3px
+    &::before
+      content: ''
+      width: 13px
+      height: 4px
+      background: #215240
+      position: absolute
+      bottom: -8px
+      left: 18px
+  &.showFinish
+    opacity: 1
+    transform: rotate(-15deg)
+    transition: .3s all
