@@ -4,6 +4,7 @@ import IntroView from '../introView'
 import MainView from '../mainView'
 import ResourceView from '../resourceView'
 import AddressBookView from '../addressBookView'
+import PersonalWebsiteView from '../personalWebsiteView'
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <IntroView />
       <ResourceView />
       <AddressBookView />
+      <PersonalWebsiteView />
     </div>
   )
 }

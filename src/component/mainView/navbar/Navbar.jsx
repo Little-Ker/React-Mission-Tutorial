@@ -7,8 +7,14 @@ import {
 import FactCheckIcon from '@mui/icons-material/FactCheck'
 import CallIcon from '@mui/icons-material/Call'
 import ManageSearchIcon from '@mui/icons-material/ManageSearch'
+import ContactsIcon from '@mui/icons-material/Contacts'
 
 const linkList = [
+  {
+    name: '新人任務',
+    to: '/home?PersonalWebsite',
+    icon: <ContactsIcon />,
+  },
   {
     name: '前端任務',
     to: '/viewA',
