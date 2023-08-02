@@ -3,6 +3,7 @@
 .App 
   text-align: left
 
+// scrollBar style 
 *::-webkit-scrollbar
   width: .6rem
 *::-webkit-scrollbar-track
@@ -12,3 +13,24 @@
   background-color: rgba(variable.$border-color,1)
 *::-webkit-scrollbar-thumb:hover
   background-color: rgba(variable.$border-color,0.5)
+
+// swiper style
+// navigation 
+.swiper-button-disabled
+  opacity: .3 !important
+// pagination
+.swiper-pagination-bullet
+  width: 10px
+  height: 10px
+  border: 2px solid variable.$border-color
+  border-radius: 3px
+  opacity: 1
+  background: #fff
+  margin: 0 .5rem !important
+  transition: .3s all
+.swiper-pagination-clickable .swiper-pagination-bullet, .swiper-pagination-bullet:hover
+  cursor: none
+.swiper-pagination-bullet-active
+  background: variable.$border-color
+  width: 25px
+  border-radius: 5px

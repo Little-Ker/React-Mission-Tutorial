@@ -28,6 +28,7 @@
     "react-scripts": "5.0.1",
     "redux": "^4.2.0",
     "sass": "^1.52.2",
+    "swiper": "^10.0.4",
     "typewriter-effect": "^2.20.1",
     "web-vitals": "^2.1.4"
   },
