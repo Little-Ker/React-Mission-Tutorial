@@ -61,6 +61,7 @@ function MissionList() {
       const missions = checkObj[chapter]?.Missions
       missions[index] = !missions[index]
       checkObj[chapter].isFinish = missions.filter(cur => !cur).length === 0
+      localStorage.setItem('frontMission', JSON.stringify(checkObj))
       return checkObj
     })
   }, [])
@@ -93,14 +94,19 @@ function MissionList() {
   }, [checkMissionList, checkTypeList])
 
   useEffect(() => {
-    const obj = {}
-    data.mission.forEach((cur) => {
-      obj[cur.title] = {
-        Missions: cur.missions.map(() => false),
-        isFinish: false,
-      }
-    })
-    setCheckMissionList(obj)
+    if (!localStorage.getItem('frontMission') || localStorage.getItem('frontMission') === 'undefined') {
+      const obj = {}
+      data.mission.forEach((cur) => {
+        obj[cur.title] = {
+          Missions: cur.missions.map(() => false),
+          isFinish: false,
+        }
+      })
+      setCheckMissionList(obj)
+      localStorage.setItem('frontMission', JSON.stringify(obj))
+      return
+    }
+    setCheckMissionList(JSON.parse(localStorage.getItem('frontMission')))
   }, [])
 
   return (

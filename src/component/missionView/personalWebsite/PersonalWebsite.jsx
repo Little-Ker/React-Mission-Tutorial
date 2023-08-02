@@ -19,8 +19,9 @@ function PersonalWebsite() {
   const onChangeCheck = useCallback((index) => {
     setCheckList((prev) => {
       prev[index] = !prev[index]
+      localStorage.setItem('personalWebsiteMission', JSON.stringify([...prev]))
       return [...prev]
-    })
+    })  
   }, [])
 
   const finishCount = useMemo(() => {
@@ -29,8 +30,13 @@ function PersonalWebsite() {
   }, [checkList])
 
   useEffect(() => {
-    const check = data.target.map(() => false)
-    setCheckList(check)
+    if (!localStorage.getItem('personalWebsiteMission') || localStorage.getItem('personalWebsiteMission') === 'undefined') {
+      const check = data.target.map(() => false)
+      setCheckList(check)
+      localStorage.setItem('personalWebsiteMission', JSON.stringify(check))
+      return
+    }
+    setCheckList(JSON.parse(localStorage.getItem('personalWebsiteMission')))
   }, [])
 
   return (
@@ -38,12 +44,12 @@ function PersonalWebsite() {
       <div className={styles.mission}>
         <div>
           <p className={styles.missionTitle}>{'製作一個涵蓋但不限於以下內容的自我介紹網頁'}</p>
-          {checkList.map((item, index) => (
-            <div key={data.target[index].title} className={styles.checkBox} data-aos="fade-right" data-aos-duration="1000" data-aos-delay={300 + (index * 150)}>
+          {data.target.map((item, index) => (
+            <div key={item.title} className={styles.checkBox} data-aos="fade-right" data-aos-duration="1000" data-aos-delay={300 + (index * 150)}>
               <CheckBox
-                check={item}
+                check={checkList[index]}
                 setCheck={() => onChangeCheck(index)}
-                text={data.target[index].title}
+                text={item.title}
                 isCheckChangeColor
                 style={{
                   fontWeight: 'bold',
@@ -51,7 +57,7 @@ function PersonalWebsite() {
                 }}
               />
               <div className={styles.content}>
-                {data.target[index].content.map(cur => (
+                {item.content.map(cur => (
                   <div key={cur} className={styles.subTitle}>{cur}</div>
                 ))}
               </div>
