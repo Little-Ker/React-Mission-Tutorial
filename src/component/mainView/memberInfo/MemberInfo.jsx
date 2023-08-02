@@ -10,11 +10,25 @@ import IconButton from '../../../component/all/iconButton/IconButton'
 import SettingsIcon from '@mui/icons-material/Settings'
 import MemberInfoSetting from '../../../component/mainView/memberInfoSetting/MemberInfoSetting'
 
+import noPhoto from '../../../assets/image/memberInfo/noImage.jpg'
+
 export default function MemberInfo() {
   const navigate = useNavigate()
 
-  const photoTest = 'https://cdn4.buysellads.net/uu/1/127419/1670531697-AdobeTeams.jpg'
   const [open, setOpen] = useState(false)
+
+  const defaultMemberData = useMemo(() => {
+    if (!localStorage.getItem('memberData') || localStorage.getItem('memberData') === 'undefined') {
+      return {
+        photo: '',
+        name: '',
+        mail: '',
+        work: '網頁前端工程師',
+      }
+    }
+    return JSON.parse(localStorage.getItem('memberData'))
+  }, [])
+  const [memberData, setMemberData] = useState(defaultMemberData)
 
   const handleClickOpen = () => {
     navigate('/home?MemberInfo', { replace: true })
@@ -36,9 +50,9 @@ export default function MemberInfo() {
       <div className={styles.member}>
         <div className={styles.info}>
           <div className={styles.photo}>
-            <img src={photoTest} alt="" /> 
+            <img src={(memberData?.photo === '') ? noPhoto : memberData?.photo} alt="" />
           </div>
-          <p className={styles.name}>Vivi</p>
+          <p className={styles.name}>{memberData?.name || ''}</p>
         </div>
         <IconButton
           icon={<SettingsIcon />}
@@ -46,7 +60,7 @@ export default function MemberInfo() {
           onClickFn={handleClickOpen}
         />
       </div>)
-  }, [])
+  }, [memberData])
 
   return (
     <div className={styles.memberInfo}>
@@ -54,10 +68,14 @@ export default function MemberInfo() {
         title={'個人資訊'}
         content={member}
       />
-      <MemberInfoSetting
-        onClose={handleClose}
-        open={open}
-      />
+      {(open) && (
+        <MemberInfoSetting
+          onClose={handleClose}
+          open={open}
+          memberData={memberData}
+          setMemberData={setMemberData}
+        />
+      )}
     </div>
   )
 }
