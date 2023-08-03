@@ -12,21 +12,25 @@ import ContactsIcon from '@mui/icons-material/Contacts'
 const linkList = [
   {
     name: '新人任務',
+    id: 'personalWebsite',
     to: '/home?PersonalWebsite',
     icon: <ContactsIcon />,
   },
   {
     name: '前端任務',
+    id: 'mission',
     to: '/home?Mission',
     icon: <FactCheckIcon />,
   },
   {
     name: '通訊錄',
+    id: 'addressBook',
     to: '/home?AddressBook',
     icon: <CallIcon />,
   },
   {
     name: '參考資料',
+    id: 'resource',
     to: '/home?Resource',
     icon: <ManageSearchIcon />,
   },
@@ -40,6 +44,7 @@ export default function Navbar() {
       {linkList.map((link, index) => (
         <Link
           key={index}
+          id={link.id}
           to={link.to}
           className={clsx(styles.link, location.pathname === `${link.to}` && styles.active)}>
           <div className={styles.linkIcon}>

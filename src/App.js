@@ -1,11 +1,12 @@
 import React, {
-  useEffect 
+  useEffect, useCallback
 } from 'react'
 import {
   BrowserRouter as Router, Route, Routes, useNavigate
 } from 'react-router-dom'
 import './App.sass'
 import 'aos/dist/aos.css'
+import gsap from 'gsap'
 import AnimatedCursor from 'react-animated-cursor'
 import ViewA from './view/ViewA'
 import ViewB from './view/ViewB'
@@ -14,8 +15,25 @@ import Home from './view/home'
 const RouterPage = () => {
   const navigate = useNavigate()
 
+  const hideLinkAnim = useCallback(() => {
+    let tl = gsap.timeline()
+    tl.to('#personalWebsite',{
+      duration: 0,
+      transform: 'scale(0.2)',
+      visibility: 'hidden',
+      onComplete: () => {
+        tl.kill()
+        tl = null
+      },
+    })
+  }, [])
+
   useEffect(() => {
-    navigate('/home?Intro', { replace: true })
+    if (!localStorage.getItem('isGetPersonalWebsiteMission') || localStorage.getItem('isGetPersonalWebsiteMission') === 'undefined') {
+      hideLinkAnim()
+      navigate('/home?Intro', { replace: true })
+      return
+    }
   }, [])
 
   return (
@@ -40,6 +58,7 @@ function App() {
           outerAlpha={0.4}
           innerScale={0.7}
           outerScale={5}
+          hasBlendMode={false}
         />
       </div>
       <Router>

@@ -9,6 +9,7 @@ import {
 } from 'react-redux'
 import PropTypes from 'prop-types'
 import AOS from 'aos'
+import gsap from 'gsap'
 import ShadowButton from '../../../component/all/shadowButton/ShadowButton'
 import styles from './target.module.sass'
 
@@ -17,9 +18,25 @@ function Target(props) {
   const navigate = useNavigate()
   const targetDate = useSelector(state => (state.personalWebsiteData.missionData))
 
+  const showGetMissionAnim = useCallback(() => {
+    let tl = gsap.timeline()
+    tl.to('#personalWebsite',{
+      duration: 0.6,
+      ease: 'back.out(1.7)',
+      transform: 'scale(1)',
+      visibility: 'visible',
+      onComplete: () => {
+        localStorage.setItem('isGetPersonalWebsiteMission', true)
+        navigate('/home', { replace: true })
+        tl.kill()
+        tl = null
+      },
+    })
+  }, [])
+
   const closeIntroHandler = useCallback(() => {
     handleClose()
-    navigate('/home', { replace: true })
+    showGetMissionAnim()
   }, [])
 
   useEffect(() => {
