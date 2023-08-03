@@ -3,25 +3,6 @@ import cg002 from '../../assets/image/intro/cg002.svg'
 import scg from '../../assets/image/intro/scg.svg'
 
 const data = {
-  // 目標
-  target: [{
-    title: '自我介紹',
-    content: ['如：出生地、成長環境、興趣專長、 個人特色等等'],
-  }, {
-    title: '學經歷',
-    content: ['如：畢業學校、特殊經歷(交換學生、遊學打工，工讀經驗等'],
-  }, {
-    title: '工作經歷',
-    content: ['如：第一份工作、前幾份工作、這幾個月在弈樂做了些什麼'],
-  }, {
-    title: '目標',
-    content: [
-      '短期(例如：學好 React、學習周邊相關技能及工具等等)',
-      '中期(例如：能夠獨立完成維護工作、學會 JS 3D等等)',
-      '長期(例如：寫出專屬於自己的前端套件、成為資深研發工程師、財富自由等等)',
-    ],
-  }],
-
   // 星球
   planets: [{
     title: '808 / CG001',

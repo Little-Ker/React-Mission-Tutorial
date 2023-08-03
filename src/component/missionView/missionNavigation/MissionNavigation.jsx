@@ -1,16 +1,19 @@
 import React, {
   useCallback, useEffect
 } from 'react'
+import {
+  useSelector 
+} from 'react-redux'
 import gsap from 'gsap'
 import PropTypes from 'prop-types'
 import IconButton from '../../../component/all/iconButton'
 import CloseIcon from '@mui/icons-material/Close'
-import data from '../data'
 import clsx from 'clsx'
 import styles from './missionNavigation.module.sass'
-  
+
 function MissionNavigation(props) {
   const { swiper, openNavigation, setOpenNavigation, onResetTypeCheck } = props
+  const missionData = useSelector(state => (state.frontMissionData.missionData))
 
   const resetAnim = () => {
     let tl = gsap.timeline()
@@ -31,7 +34,7 @@ function MissionNavigation(props) {
       },
     })
 
-    data?.mission?.forEach((cur, index) => {
+    missionData?.forEach((cur, index) => {
       let tl = gsap.timeline()
       tl.to(`#missionNavigationLink${index}`,{
         duration: 0,
@@ -45,8 +48,8 @@ function MissionNavigation(props) {
     })
   }
  
-  const showLinkAnim = useCallback(() => {
-    data?.mission?.forEach((cur, index) => {
+  const showLinkAnim = useCallback((mission) => {
+    mission?.forEach((cur, index) => {
       let tl = gsap.timeline()
       tl.to(`#missionNavigationLink${index}`,{
         delay: index * 0.1,
@@ -76,7 +79,7 @@ function MissionNavigation(props) {
       opacity: 1,
       transform: 'translateZ(0) scale(1)',
     }).add(() => {
-      showLinkAnim()
+      showLinkAnim(missionData)
     }).to('#missionNavigationTitle', {
       duration: 0.3,
       opacity: 1,
@@ -86,7 +89,7 @@ function MissionNavigation(props) {
         tl = null
       },
     })
-  }, [])
+  }, [missionData])
 
   useEffect(() => {
     resetAnim()
@@ -131,8 +134,8 @@ function MissionNavigation(props) {
         </div>
         <div className={styles.content}>
           <p id={'missionNavigationTitle'} className={styles.title}>{'- List -'}</p>
-          <div className={clsx(styles.list, (data?.mission.length > 8 && styles.listBorder))}>
-            {data?.mission.map((cur, index) => (
+          <div className={clsx(styles.list, (missionData?.length > 8 && styles.listBorder))}>
+            {missionData?.map((cur, index) => (
               <a id={`missionNavigationLink${index}`} className={styles.link} key={cur.title} onClick={() => onSlideTo(index)}>
                 <p className={styles.subTitle}>{`[ ${cur.title} ]`}</p>
                 <p>{cur.subTitle}</p>

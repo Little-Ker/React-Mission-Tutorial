@@ -1,6 +1,9 @@
 import React, {
   useCallback, useEffect, useState, useMemo
 } from 'react'
+import {
+  useSelector 
+} from 'react-redux'
 import CheckBox from '../../../component/all/checkBox'
 import ProgressBar from '../../../component/all/progressBar'
 import IconButton from '../../all/iconButton/IconButton'
@@ -17,10 +20,11 @@ import {
   Pagination, Navigation
 } from 'swiper/modules'
 import clsx from 'clsx'
-import data from '../data'
 import styles from './missionList.module.sass'
 
 function MissionList() {
+  const missionData = useSelector(state => (state.frontMissionData.missionData))
+
   const [swiper, setSwiper] = useState(null)
 
   const [openMissionNavigation, setOpenMissionNavigation] = useState(false)
@@ -87,7 +91,7 @@ function MissionList() {
     Object.keys(checkMissionList)?.forEach((cur, index) => {
       const isFinish = checkMissionList[cur].isFinish
       if ((checkTypeList.undone && !isFinish) || (checkTypeList.complete && isFinish)) {
-        missionList.push(data.mission[index]) 
+        missionList.push(missionData[index]) 
       }
     })
     return missionList
@@ -96,7 +100,7 @@ function MissionList() {
   useEffect(() => {
     if (!localStorage.getItem('frontMission') || localStorage.getItem('frontMission') === 'undefined') {
       const obj = {}
-      data.mission.forEach((cur) => {
+      missionData.forEach((cur) => {
         obj[cur.title] = {
           Missions: cur.missions.map(() => false),
           isFinish: false,
@@ -166,17 +170,17 @@ function MissionList() {
           modules={[Pagination, Navigation]}
           className={styles.swiper}
         >
-          {showMissionList.map((cur, index) => (
+          {showMissionList?.map((cur, index) => (
             <SwiperSlide
-              key={cur.title}
+              key={cur?.title}
               className={clsx(styles.swiperSlide)}
-              id={(checkMissionList[cur.title]?.isFinish && checkTypeList.complete) ? 'clear' : 'show'}
+              id={(checkMissionList[cur?.title]?.isFinish && checkTypeList.complete) ? 'clear' : 'show'}
             >
               <Card
                 content={
                   <MissionCard
                     data={cur}
-                    missionStatus={checkMissionList[cur.title]}
+                    missionStatus={checkMissionList[cur?.title]}
                     onChangeCheck={onChangeCheck}
                   />
                 }

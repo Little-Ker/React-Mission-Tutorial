@@ -1,15 +1,19 @@
 import React, {
   useCallback, useEffect, useState, useMemo
 } from 'react'
+import {
+  useSelector 
+} from 'react-redux'
 import AOS from 'aos'
 import CheckBox from '../../../component/all/checkBox'
 import ProgressBar from '../../../component/all/progressBar'
-import data from '../data'
 import styles from './personalWebsite.module.sass'
 
 import react from '../../../assets/image/intro/react.png'
 
 function PersonalWebsite() {
+  const targetDate = useSelector(state => (state.personalWebsiteData.missionData))
+
   useEffect(() => {
     AOS.init({ duration: 600 })
   }, [])
@@ -31,7 +35,7 @@ function PersonalWebsite() {
 
   useEffect(() => {
     if (!localStorage.getItem('personalWebsiteMission') || localStorage.getItem('personalWebsiteMission') === 'undefined') {
-      const check = data.target.map(() => false)
+      const check = targetDate.map(() => false)
       setCheckList(check)
       localStorage.setItem('personalWebsiteMission', JSON.stringify(check))
       return
@@ -44,7 +48,7 @@ function PersonalWebsite() {
       <div className={styles.mission}>
         <div>
           <p className={styles.missionTitle}>{'製作一個涵蓋但不限於以下內容的自我介紹網頁'}</p>
-          {data.target.map((item, index) => (
+          {targetDate.map((item, index) => (
             <div key={item.title} className={styles.checkBox} data-aos="fade-right" data-aos-duration="1000" data-aos-delay={300 + (index * 150)}>
               <CheckBox
                 check={checkList[index]}
@@ -68,7 +72,7 @@ function PersonalWebsite() {
       </div>
       <ProgressBar
         finishCount={finishCount}
-        totalCount={data.target.length}
+        totalCount={targetDate.length}
       />
     </div>
   )

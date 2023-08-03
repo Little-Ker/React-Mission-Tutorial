@@ -1,7 +1,224 @@
 {
-    "titleData": [
-      {"title": "title01", "txt": "11"},
-      {"title": "title02", "txt": "22"},
-      {"title": "title03", "txt": "33"}
+  "target": [{
+    "title": "自我介紹",
+    "content": ["如：出生地、成長環境、興趣專長、 個人特色等等"]
+  }, {
+    "title": "學經歷",
+    "content": ["如：畢業學校、特殊經歷(交換學生、遊學打工，工讀經驗等)"]
+  }, {
+    "title": "工作經歷",
+    "content": ["如：第一份工作、前幾份工作、這幾個月在弈樂做了些什麼"]
+  }, {
+    "title": "目標",
+    "content": [
+      "短期(例如：學好 React、學習周邊相關技能及工具等等)",
+      "中期(例如：能夠獨立完成維護工作、學會 JS 3D等等)",
+      "長期(例如：寫出專屬於自己的前端套件、成為資深研發工程師、財富自由等等)"
     ]
+  }],
+
+  "mission": [{
+    "title": "Chapter 1",
+    "subTitle": "CRA",
+    "content": [
+      "利用指令建立新專案",
+      "了解專案結構",
+      "安裝依賴套件的方法",
+      "使用 sass"
+    ],
+    "missions": ["透過 CRA 建立一個你的專案"],
+    "resource": [{
+      "text": "Create React App",
+      "url": "https://create-react-app.dev/"
+    }]
+  }, {
+    "title": "Chapter 2",
+    "subTitle": "Eslint",
+    "content": [
+      "VS Code 安裝 Eslint 工具",
+      "配置 vscode 的 Eslint 相關設定",
+      "撰寫 .eslintrc.json (配合 react)"
+    ],
+    "missions": [
+      "VS Code 配合 Eslint 設定 autofix on save", 
+      "用 google 的風格設定延伸配置 eslintrc 設定檔(e.g. 程式碼不使用分號結尾)",
+      "讓專案跑起來不會有任何 eslint compile error"
+    ],
+    "resource": [{
+      "text": "ESLint",
+      "url": "https://eslint.org/"
+    }]
+  }, {
+    "title": "Chapter 3",
+    "subTitle": "Component",
+    "content": [
+      "創建你自己定義的 component",
+      "參數傳遞與型別定義",
+      "了解元件狀態特性"
+    ],
+    "missions": ["自我介紹頁面中第一個想到的是什麼？把它元件化吧"],
+    "resource": [{
+      "text": "JSX",
+      "url": "https://zh-hant.reactjs.org/docs/introducing-jsx.html"
+    }, {
+      "text": "Prop",
+      "url": "https://zh-hant.reactjs.org/docs/components-and-props.html"
+    }, {
+      "text": "State",
+      "url": "https://zh-hant.reactjs.org/docs/state-and-lifecycle.html"
+    }, {
+      "text": "Prop-types",
+      "url": "https://zh-hant.reactjs.org/docs/typechecking-with-proptypes.html"
+    }]
+  }, {
+    "title": "Chapter 4",
+    "subTitle": "Hooks",
+    "content": [
+      "useState",
+      "useEffect",
+      "useMemo",
+      "useCallback",
+      "useContext",
+      "useRef"
+    ],
+    "missions": [
+      "在定義好的 component 裡使用 hook ",
+      "試寫一個自己定義的 hook"
+    ],
+    "resource": [{
+      "text": "Hook",
+      "url": "https://zh-hant.reactjs.org/docs/hooks-intro.html"
+    }]
+  }, {
+    "title": "Chapter 5",
+    "subTitle": "Material-UI",
+    "content": [
+      "大致了解 Material UI 有哪些經典的 Components 可以使用",
+      "學習查找 Material UI 的展示及 API 說明",
+      "了解 Theme 系統",
+      "學習 Mui v5 新增的 sx"
+    ],
+    "missions": [
+      "配置至少 3 個 Material UI 元件在自介網站裡",
+      "透過 theme 修改出主題配色"
+    ],
+    "resource": [{
+      "text": "Material-UI",
+      "url": "https://mui.com/"
+    }]
+  }, {
+    "title": "Chapter 6",
+    "subTitle": "SASS",
+    "content": [
+      "sass 基本寫作技巧: Variables / Nesting / Modules(@use) / Mixins / Extend / Operators",
+      "了解 module.sass 與.sass 有什麼不同？是怎麼運作的？"
+    ],
+    "missions": [
+      "將 CRA 專案做好 module sass 配置(請使用 dart sass， 不要用 node sass)",
+      "在專案裡使用 .module.sass",
+      "請說明 mixin 與 extend 的差別及優缺點"
+    ],
+    "resource": [{
+      "text": "Dart sass",
+      "url": "https://sass-lang.com/dart-sass"
+    }, {
+      "text": "CRA 中使用 sass",
+      "url": "https://create-react-app.dev/docs/adding-a-sass-stylesheet/"
+    }]
+  }, {
+    "title": "Chapter 7",
+    "subTitle": "React Router",
+    "content": [
+      "react router 的安裝及配置",
+      "基本使用方法",
+      "權限驗證",
+      "Lazy loading",
+      "params"
+    ],
+    "missions": [
+      "在專案中配置好 react router",
+      "用 react routerg 實作網站的 sitemap",
+      "使用 Lazy loading 動態載入某些畫面",
+      "在網址上嘗試帶入參數來影響頁面內容"
+    ],
+    "resource": [{
+      "text": "React Router",
+      "url": "https://reactrouter.com/docs/en/v6#welcome-to-react-router"
+    }]
+  }, {
+    "title": "Chapter 8",
+    "subTitle": "Axios",
+    "content": [
+      "安裝及配置 axios",
+      "依據需求 create 自定義的 axios instance",
+      "透過 axios 呼叫 API"
+    ],
+    "missions": [
+      "在專案內安裝及配置 axios",
+      "使用 cra 的 Proxy 功能在專案中實現 mock server",
+      "呼叫自己定義的 API 去拿到頁面要顯示的資料"
+    ],
+    "resource": [{
+      "text": "axios",
+      "url": "https://axios-http.com/"
+    }]
+  }, {
+    "title": "Chapter 9",
+    "subTitle": "Redux",
+    "content": [
+      "了解 Redux 的核心理念",
+      "同步與非同步"
+    ],
+    "missions": [
+      "用 axios 取得非同步的資料放到 store 裡來用"
+    ],
+    "resource": [{
+      "text": "Redux",
+      "url": "https://redux.js.org/"
+    }, {
+      "text": "Redux（中文版）",
+      "url": "https://chentsulin.github.io/redux/"
+    }]
+  }, {
+    "title": "Chapter 10",
+    "subTitle": "Zustand",
+    "content": [
+      "自定義 store 然後跨元件的使用"
+    ],
+    "missions": [
+      "在網頁中使用 zustand",
+      "嘗試說明 zustand 與 Redux 還有 useContext 的異同以及優缺點"
+    ],
+    "resource": [{
+      "text": "zustand",
+      "url": "https://github.com/pmndrs/zustand"
+    }]
+  }, {
+    "title": "支線任務 1",
+    "subTitle": "clsx",
+    "content": [
+      "在 react dom 中透過邏輯判斷的方式放入對應的 className"
+    ],
+    "missions": [
+      "在網站中使用 clsx"
+    ],
+    "resource": [{
+      "text": "clsx",
+      "url": "https://www.npmjs.com/package/clsx"
+    }]
+  }, {
+    "title": "支線任務 2",
+    "subTitle": "immer",
+    "content": [
+      "概念及基本使用方法",
+      "react 中 immer 的應用"
+    ],
+    "missions": [
+      "在網站中使用 immer"
+    ],
+    "resource": [{
+      "text": "immer",
+      "url": "https://immerjs.github.io/immer/"
+    }]
+  }]
 }
