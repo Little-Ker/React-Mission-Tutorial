@@ -39,6 +39,11 @@ const RouterPage = () => {
   }, [])
 
   useEffect(() => {
+    if (!localStorage.getItem('isOpeningAnimationFinish') || localStorage.getItem('isOpeningAnimationFinish') === 'undefined') {
+      hideLinkAnim()
+      navigate('/home?Animation', { replace: true })
+      return
+    }
     if (!localStorage.getItem('isGetPersonalWebsiteMission') || localStorage.getItem('isGetPersonalWebsiteMission') === 'undefined') {
       hideLinkAnim()
       navigate('/home?Intro', { replace: true })

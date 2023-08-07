@@ -30,6 +30,11 @@ export default function MemberInfo() {
   }, [])
   const [memberData, setMemberData] = useState(defaultMemberData)
 
+  useEffect(() => {
+    const member = JSON.parse(localStorage.getItem('memberData'))
+    setMemberData(member)
+  }, [localStorage.getItem('memberData')])
+
   const handleClickOpen = () => {
     navigate('/home?MemberInfo', { replace: true })
   }

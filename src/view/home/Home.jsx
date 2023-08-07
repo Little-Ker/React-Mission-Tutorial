@@ -6,6 +6,7 @@ import ResourceView from '../resourceView'
 import AddressBookView from '../addressBookView'
 import PersonalWebsiteView from '../personalWebsiteView'
 import MissionView from '../missionView'
+import AnimationView from '../animationView'
 import TransparentOverlay from '../../component/home/transparentOverlay'
 
 const Home = () => {
@@ -18,6 +19,7 @@ const Home = () => {
       <AddressBookView />
       <PersonalWebsiteView />
       <MissionView />
+      <AnimationView />
       <TransparentOverlay />
     </div>
   )
