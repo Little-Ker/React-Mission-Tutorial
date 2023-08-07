@@ -4,6 +4,9 @@ import React, {
 import {
   BrowserRouter as Router, Route, Routes, useNavigate
 } from 'react-router-dom'
+import {
+  useDispatch 
+} from 'react-redux'
 import './App.sass'
 import 'aos/dist/aos.css'
 import gsap from 'gsap'
@@ -12,16 +15,23 @@ import ViewA from './view/ViewA'
 import ViewB from './view/ViewB'
 import Home from './view/home'
 
+import {
+  changeTransparentOverlay 
+} from './redux/showTransparentOverlaySlice'
+
 const RouterPage = () => {
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   const hideLinkAnim = useCallback(() => {
+    dispatch(changeTransparentOverlay(true))
     let tl = gsap.timeline()
     tl.to('#personalWebsite',{
       duration: 0,
       transform: 'scale(0.2)',
       visibility: 'hidden',
       onComplete: () => {
+        dispatch(changeTransparentOverlay(false))
         tl.kill()
         tl = null
       },
