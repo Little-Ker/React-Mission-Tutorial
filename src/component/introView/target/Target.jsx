@@ -20,11 +20,20 @@ function Target(props) {
 
   const showGetMissionAnim = useCallback(() => {
     let tl = gsap.timeline()
-    tl.to('#personalWebsite',{
+    tl.to('#darkOverlay', {
+      duration: 0,
+      opacity: 1,
+      display: 'block',
+    }).to('#personalWebsite',{
+      delay: .6,
       duration: 0.6,
       ease: 'back.out(1.7)',
       transform: 'scale(1)',
       visibility: 'visible',
+    }).to('#darkOverlay', {
+      duration: 1,
+      opacity: 0,
+      display: 'none',
       onComplete: () => {
         localStorage.setItem('isGetPersonalWebsiteMission', true)
         navigate('/home', { replace: true })

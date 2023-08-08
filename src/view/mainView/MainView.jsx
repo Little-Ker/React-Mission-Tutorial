@@ -32,10 +32,11 @@ const MainView = () => {
         <p>Yile Web Frontend</p>
         <p>{`${monthList[todayMonth]} ${todayDate}, ${todayYear}`}</p>
       </div>
-      <Navbar />
       <div className={styles.content}>
         <MemberInfo />
       </div>
+      <div id={'darkOverlay'} className={styles.darkOverlay} />
+      <Navbar />
     </div>
   )
 }
