@@ -6,7 +6,7 @@ import axios from 'axios'
 export const fetchTargetData  = createAsyncThunk(
   'axios/fetchTargetData',
   async () => {
-    const response = await axios.get('/data/dataList.json')
+    const response = await axios.get(`${process.env.REACT_APP_URL}/data/dataList.json`)
     return response.data.target
   }
 )

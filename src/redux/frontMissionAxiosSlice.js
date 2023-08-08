@@ -6,7 +6,7 @@ import axios from 'axios'
 export const fetchFrontMissionData  = createAsyncThunk(
   'axios/fetchFrontMissionData',
   async () => {
-    const response = await axios.get('/data/dataList.json')
+    const response = await axios.get(`${process.env.REACT_APP_URL}/data/dataList.json`)
     return response.data.mission
   }
 )
