@@ -1,0 +1,48 @@
+@use '../../../styles/variable' as variable
+    
+.scrollAnim
+  position: absolute
+  bottom: 50px
+  left: 0
+  right: 0
+  z-index: 2
+  display: flex
+  flex-direction: column
+  align-items: center
+  .border
+    width: 45px
+    height: 70px
+    border-radius: 30px
+    background: #ffffff9d
+    border: 6px solid variable.$text-color
+    display: flex
+    justify-content: center
+    .dot
+      width: 10px
+      height: 10px 
+      border-radius: 30px
+      margin-top: 10px
+      background: variable.$text-color
+      animation: rotateAnim 1.6s linear
+      animation-fill-mode: forwards
+      animation-iteration-count: infinite
+  .tip
+    letter-spacing: 2px
+    color: variable.$text-color
+    font-size: 20px
+    font-weight: bold    
+
+@keyframes rotateAnim
+  0%
+    margin-top: 10px
+    opacity: 1
+  30%
+    margin-top: 40px
+  60%
+    opacity: 1
+  70%
+    opacity: 0
+    margin-top: 40px
+  100%
+    opacity: 0
+    margin-top: 10px

@@ -3,6 +3,7 @@ import React, {
 } from 'react'
 import gsap from 'gsap'
 import EmployeeBadge from '../employeeBadge'
+import ScrollAnim from '../scrollAnim'
 import styles from './letterFlyAnim.module.sass'
 
 import desktop from '../../../assets/image/anim/desktop.svg'
@@ -114,6 +115,9 @@ function LetterFlyAnim() {
           <img id={'letterMask', 'letterTriangle'} className={styles.letterTriangle} src={letterTriangle} alt="" />
         </div>
       </div>
+      <div id={'scrollAnim'} className={styles.scrollAnim}>
+        <ScrollAnim />
+      </div> 
     </div>
   )
 }
