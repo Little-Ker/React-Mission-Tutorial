@@ -1,5 +1,6 @@
 {
   "name": "my-app",
+  "homepage": "https://little-ker.github.io/React-Mission-Tutorial",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -17,6 +18,7 @@
     "axios": "^0.27.2",
     "clsx": "^1.1.1",
     "date-fns": "^2.30.0",
+    "gh-pages": "^5.0.0",
     "gsap": "^3.12.2",
     "prop-types": "^15.8.1",
     "react": "^18.1.0",
@@ -35,6 +37,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

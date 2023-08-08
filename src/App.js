@@ -2,7 +2,7 @@ import React, {
   useEffect, useCallback
 } from 'react'
 import {
-  BrowserRouter as Router, Route, Routes, useNavigate
+  HashRouter as Router, Route, Routes, useNavigate
 } from 'react-router-dom'
 import {
   useDispatch 
