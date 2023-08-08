@@ -8,10 +8,15 @@ import PersonalWebsiteView from '../personalWebsiteView'
 import MissionView from '../missionView'
 import AnimationView from '../animationView'
 import TransparentOverlay from '../../component/home/transparentOverlay'
+import {
+  useSelector
+} from 'react-redux'
 
 const Home = () => {
+  const isOpenOverlay = useSelector(state => state.showOpenAnim.isOpen)
+
   return (
-    <div>
+    <div style={{height: (isOpenOverlay) ? 'calc(100vh + 550px)' : '100vh'}}>
       <BgCircle />
       <MainView />
       <IntroView />

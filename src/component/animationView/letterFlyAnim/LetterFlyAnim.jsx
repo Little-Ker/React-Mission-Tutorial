@@ -1,8 +1,14 @@
 import React, {
-  useEffect
+  useEffect, useRef, useState
 } from 'react'
 import gsap from 'gsap'
 import EmployeeBadge from '../employeeBadge'
+import {
+  Controller, Scene 
+} from 'react-scrollmagic'
+import {
+  Tween
+} from 'react-gsap'
 import ScrollAnim from '../scrollAnim'
 import styles from './letterFlyAnim.module.sass'
 
@@ -15,22 +21,26 @@ import letterMask from '../../../assets/image/anim/letterMask.png'
 import letterTriangle from '../../../assets/image/anim/letterTriangle.png'
 
 function LetterFlyAnim() {
+  const triggerRef = useRef(null)
+  const [trigger, setTrigger] = useState(triggerRef.current)
 
+  useEffect(() => {
+    setTrigger(triggerRef.current)
+  }, [])
+ 
   const showLetterAnim = () => {
     let tl = gsap.timeline()
-    tl.to('#mail',{
-      ease: 'back.out(1.2)',
-      duration: 1,
-      right: '-120px',
-      display: 'flex',
-    }).to('#overlayScene',{
+    tl.to('#overlayScene',{
+      delay: .3,
       duration: 1,
       opacity: 1,
       display: 'flex',
-    }).to('#letter',{
+    }, 'showOverlay').to('#scrollAnim',{
+      duration: 1,
+      opacity: 0,
+    }, 'showOverlay').to('#letter',{
       duration: .6,
       transform: 'rotate3d(0, 0, 0, 0)',
-      display: 'flex',
     }).to('#letterMask',{
       duration: .6,
       marginTop: '420px',
@@ -59,11 +69,9 @@ function LetterFlyAnim() {
     tl.to('#mail',{
       duration: 0,
       right: '-500px',
-      display: 'none',
     }).to('#letter',{
       duration: 0,
       transform: 'rotate3d(1, 1, 0, 90deg)',
-      display: 'none',
     }).to('#letterMask',{
       duration: 0,
       marginTop: 0,
@@ -84,7 +92,6 @@ function LetterFlyAnim() {
       onComplete: () => {
         tl.kill()
         tl = null
-        showLetterAnim()
       },
     })
   }
@@ -100,9 +107,26 @@ function LetterFlyAnim() {
         <img className={styles.book} src={book} alt="" />
         <img className={styles.window} src={window} alt="" />
         <img className={styles.desktop} src={desktop} alt="" />
-        <div className={styles.screen}>
-          <img id={'mail'} className={styles.letter} src={letter} alt="" />
-        </div>
+        <Controller>
+          <div className={styles.screen}>
+            <Scene
+              triggerHook={0.7}
+              triggerElement={trigger}
+              duration={500}
+            >
+              {progress => (
+                <Tween            
+                  to={{ right: '-120px' }}       
+                  totalProgress={progress}
+                  paused
+                  onComplete={() => showLetterAnim()}
+                >
+                  <img id={'mail'} className={styles.letter} src={letter} alt="" />
+                </Tween>    
+              )}
+            </Scene>
+          </div>
+        </Controller>
         <img className={styles.coffee} src={coffee} alt="" />
       </div>
       <div id={'overlayScene'} className={styles.overlayScene}>
