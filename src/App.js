@@ -11,8 +11,6 @@ import './App.sass'
 import 'aos/dist/aos.css'
 import gsap from 'gsap'
 import AnimatedCursor from 'react-animated-cursor'
-import ViewA from './view/ViewA'
-import ViewB from './view/ViewB'
 import Home from './view/home'
 
 import {
@@ -55,9 +53,6 @@ const RouterPage = () => {
     <Routes>
       <Route exact path="/" element={<Home/>} />
       <Route exact path="home" element={<Home/>} />
-      <Route exact path="viewA" element={<ViewA/>} />
-      <Route exact path="viewB" element={<ViewB/>} />
-      <Route path="*" element={<ViewA/>} />
     </Routes>
   )
 }
