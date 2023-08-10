@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/React-Mission-Tutorial/static/css/main.3bc0a9b4.css",
-    "main.js": "/React-Mission-Tutorial/static/js/main.08264077.js",
+    "main.css": "/React-Mission-Tutorial/static/css/main.aaad39ac.css",
+    "main.js": "/React-Mission-Tutorial/static/js/main.e3692325.js",
     "static/js/787.28cb0dcd.chunk.js": "/React-Mission-Tutorial/static/js/787.28cb0dcd.chunk.js",
     "static/media/welcome.png": "/React-Mission-Tutorial/static/media/welcome.06c092ad4da6e3fcff59.png",
     "static/media/letterMask.png": "/React-Mission-Tutorial/static/media/letterMask.c0a4a4d3492ec92af9e4.png",
@@ -21,12 +21,12 @@
     "static/media/photo.svg": "/React-Mission-Tutorial/static/media/photo.caf5ea0f46bef8c970ce5e8c8dced684.svg",
     "static/media/star.svg": "/React-Mission-Tutorial/static/media/star.e53eb2d97434808ca48d5af57cd3e9b1.svg",
     "index.html": "/React-Mission-Tutorial/index.html",
-    "main.3bc0a9b4.css.map": "/React-Mission-Tutorial/static/css/main.3bc0a9b4.css.map",
-    "main.08264077.js.map": "/React-Mission-Tutorial/static/js/main.08264077.js.map",
+    "main.aaad39ac.css.map": "/React-Mission-Tutorial/static/css/main.aaad39ac.css.map",
+    "main.e3692325.js.map": "/React-Mission-Tutorial/static/js/main.e3692325.js.map",
     "787.28cb0dcd.chunk.js.map": "/React-Mission-Tutorial/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3bc0a9b4.css",
-    "static/js/main.08264077.js"
+    "static/css/main.aaad39ac.css",
+    "static/js/main.e3692325.js"
   ]
 }
