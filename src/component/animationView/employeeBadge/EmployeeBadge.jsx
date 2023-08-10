@@ -33,7 +33,7 @@ function EmployeeBadge() {
     }
     localStorage.setItem('memberData', JSON.stringify(useData))
 
-    navigate('/home?Intro', { replace: true })
+    navigate('/Intro', { replace: true })
     dispatch(showOpenAnim(false))
   }, [name])
 

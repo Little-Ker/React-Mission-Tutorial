@@ -1,30 +1,37 @@
-import React from 'react'
-import BgCircle from '../../component/home/bgCircle'
-import IntroView from '../introView'
-import MainView from '../mainView'
-import ResourceView from '../resourceView'
-import AddressBookView from '../addressBookView'
-import PersonalWebsiteView from '../personalWebsiteView'
-import MissionView from '../missionView'
-import AnimationView from '../animationView'
-import TransparentOverlay from '../../component/home/transparentOverlay'
+import React, {
+  useEffect
+} from 'react'
 import {
-  useSelector
+  useDispatch, useSelector
 } from 'react-redux'
+import {
+  Outlet
+} from 'react-router-dom'
+import BgCircle from '../../component/home/bgCircle'
+import MainView from '../mainView'
+import TransparentOverlay from '../../component/home/transparentOverlay'
+
+import {
+  fetchFrontMissionData 
+} from '../../redux/frontMissionAxiosSlice'
+import {
+  fetchTargetData 
+} from '../../redux/personalWebsiteAxiosSlice'
 
 const Home = () => {
+  const dispatch = useDispatch()
   const isOpenOverlay = useSelector(state => state.showOpenAnim.isOpen)
+
+  useEffect(() => {
+    dispatch(fetchFrontMissionData())
+    dispatch(fetchTargetData())
+  }, [dispatch])
 
   return (
     <div style={{height: (isOpenOverlay) ? 'calc(100vh + 550px)' : '100vh'}}>
       <BgCircle />
       <MainView />
-      <IntroView />
-      <ResourceView />
-      <AddressBookView />
-      <PersonalWebsiteView />
-      <MissionView />
-      <AnimationView />
+      <Outlet />
       <TransparentOverlay />
     </div>
   )

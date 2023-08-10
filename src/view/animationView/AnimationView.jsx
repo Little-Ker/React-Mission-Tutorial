@@ -16,10 +16,8 @@ const AnimationView = () => {
   const isOpenOverlay = useSelector(state => state.showOpenAnim.isOpen)
 
   useEffect(() => {
-    if (location.search === '?Animation') {
-      dispatch(showOpenAnim(true))
-    }
-  }, [location?.search])
+    dispatch(showOpenAnim(true))
+  }, [])
 
   return (
     <div>

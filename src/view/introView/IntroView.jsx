@@ -2,7 +2,7 @@ import React, {
   useCallback, useMemo, useState, useEffect
 } from 'react'
 import {
-  useLocation 
+  useNavigate 
 } from 'react-router-dom'
 import AOS from 'aos'
 import Dialog from '@mui/material/Dialog'
@@ -19,23 +19,16 @@ import welcome from '../../assets/image/intro/welcome.png'
 import react from '../../assets/image/intro/react.png'
   
 function IntroView() {
-  const location = useLocation()
+  const navigate = useNavigate()
 
-  const [open, setOpen] = useState(false)
   const [step, setStep] = useState(0)
-
-  useEffect(() => {
-    if (location.search === '?Intro') {
-      setOpen(true)
-    }
-  }, [location?.search])
   
   useEffect(() => {
     AOS.init({ duration: 600 })
   }, [])
   
   const handleClose = useCallback(() => {
-    setOpen(false)
+    navigate('/Home', { replace: true })
   }, [])
   
   const handleNext = useCallback(() => {

@@ -1,5 +1,5 @@
 import React, {
-  useCallback, useState, useEffect
+  useCallback
 } from 'react'
 import {
   useNavigate 
@@ -11,22 +11,14 @@ import ResourceList from '../../component/resourceList'
     
 function ResourceView() {
   const navigate = useNavigate()
-  const [open, setOpen] = useState(false)
 
-  useEffect(() => {
-    if (location.search === '?Resource') {
-      setOpen(true)
-    }
-  }, [location?.search])
-    
   const handleClose = useCallback(() => {
-    navigate('/home', { replace: true })
-    setOpen(false)
+    navigate('/Home', { replace: true })
   }, [])
     
   return (
     <Dialog
-      open={open}
+      open={true}
       onClose={handleClose}
       PaperProps={{ style: {
         backgroundColor: 'transparent',

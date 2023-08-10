@@ -36,17 +36,17 @@ export default function MemberInfo() {
   }, [localStorage.getItem('memberData')])
 
   const handleClickOpen = () => {
-    navigate('/home?MemberInfo', { replace: true })
+    navigate('/MemberInfo', { replace: true })
   }
 
   useEffect(() => {
-    if (location.search === '?MemberInfo') {
+    if (location.hash === '#/MemberInfo') {
       setOpen(true)
     }
-  }, [location?.search])
+  }, [location?.hash])
 
   const handleClose = () => {
-    navigate('/home', { replace: true })
+    navigate('/Home', { replace: true })
     setOpen(false)
   }
 

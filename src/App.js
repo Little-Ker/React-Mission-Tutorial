@@ -12,6 +12,12 @@ import 'aos/dist/aos.css'
 import gsap from 'gsap'
 import AnimatedCursor from 'react-animated-cursor'
 import Home from './view/home'
+import AddressBookView from './view/addressBookView/AddressBookView'
+import MissionView from './view/missionView'
+import ResourceView from './view/resourceView'
+import AnimationView from './view/animationView'
+import IntroView from './view/introView'
+import PersonalWebsiteView from './view/personalWebsiteView'
 
 import {
   changeTransparentOverlay 
@@ -39,20 +45,28 @@ const RouterPage = () => {
   useEffect(() => {
     if (!localStorage.getItem('isOpeningAnimationFinish') || localStorage.getItem('isOpeningAnimationFinish') === 'undefined') {
       hideLinkAnim()
-      navigate('/home?Animation', { replace: true })
+      navigate('/Animation', { replace: true })
       return
     }
     if (!localStorage.getItem('isGetPersonalWebsiteMission') || localStorage.getItem('isGetPersonalWebsiteMission') === 'undefined') {
       hideLinkAnim()
-      navigate('/home?Intro', { replace: true })
+      navigate('/Intro', { replace: true })
       return
     }
   }, [])
 
   return (
     <Routes>
-      <Route exact path="/" element={<Home/>} />
-      <Route exact path="home" element={<Home/>} />
+      <Route path="Home" element={<Home/>} />
+      <Route path="/" element={<Home/>} />
+      <Route path="/*" element={<Home/>}>
+        <Route path="AddressBook" element={<AddressBookView />} />
+        <Route path="Mission" element={<MissionView />} />
+        <Route path="Resource" element={<ResourceView />} />
+        <Route path="PersonalWebsite" element={<PersonalWebsiteView />} />
+        <Route path="Animation" element={<AnimationView />} />
+        <Route path="Intro" element={<IntroView />} />
+      </Route>
     </Routes>
   )
 }

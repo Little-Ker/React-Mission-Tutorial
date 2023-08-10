@@ -36,7 +36,7 @@ function Target(props) {
       display: 'none',
       onComplete: () => {
         localStorage.setItem('isGetPersonalWebsiteMission', true)
-        navigate('/home', { replace: true })
+        navigate('/Home', { replace: true })
         tl.kill()
         tl = null
       },
