@@ -19,7 +19,7 @@ const data = {
   }, {
     title: 'Pocket / SCG',
     img: scg,
-    members: ['Vivi', '魯斯', '西西'],
+    members: [ '西西', 'Vivi', '魯斯'],
     color: '#6BA14E',
     width: '300px',
   }],
