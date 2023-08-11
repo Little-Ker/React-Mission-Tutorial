@@ -22,6 +22,9 @@ import PersonalWebsiteView from './view/personalWebsiteView'
 import {
   changeTransparentOverlay 
 } from './redux/showTransparentOverlaySlice'
+import {
+  showOpenAnim 
+} from './redux/showOpenAnimSlice'
 
 const RouterPage = () => {
   const navigate = useNavigate()
@@ -45,6 +48,7 @@ const RouterPage = () => {
   useEffect(() => {
     if (!localStorage.getItem('isOpeningAnimationFinish') || localStorage.getItem('isOpeningAnimationFinish') === 'undefined') {
       hideLinkAnim()
+      dispatch(showOpenAnim(true))
       navigate('/Animation', { replace: true })
       return
     }
@@ -53,6 +57,7 @@ const RouterPage = () => {
       navigate('/Intro', { replace: true })
       return
     }
+    navigate('/Animation', { replace: true })
   }, [])
 
   return (

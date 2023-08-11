@@ -153,7 +153,7 @@ function IntroView() {
     
   return (
     <Dialog
-      open={open}
+      open={true}
       PaperProps={{ style: {
         backgroundColor: 'transparent',
         maxWidth: 'none',

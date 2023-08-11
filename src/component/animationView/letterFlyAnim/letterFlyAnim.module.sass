@@ -1,3 +1,5 @@
+@use '../../../styles/variable' as variable
+  
 .letterFlyAnim
   .scene
     position: absolute
@@ -20,7 +22,49 @@
       width: 494px
       position: relative
       top: -68px
-      overflow: hidden
+      &.overflow
+        overflow: hidden
+      .loading
+        width: 100%
+        display: flex
+        justify-content: center
+        .progress
+          width: 80%
+          border-radius: 10px
+          margin-top: 3px
+          letter-spacing: 1px
+          padding: 3px
+          border: 2px solid #023662
+          .progressBar
+            height: 30px
+            min-width: 2.2em
+            border-radius: 10px
+            background-color: #023662
+            color: #fff
+            font-size: 14px
+            box-shadow: inset 0px -4px 5px rgba(variable.$text-color, 0.25)
+            letter-spacing: 2px
+        .welcome
+          position: absolute
+          top: -70px
+          width: 100%
+          height: 160px
+          color: #023662
+          font-weight: bold
+          letter-spacing: 2px
+          .name
+            text-align: center
+            font-size: 3rem
+            margin-top: 1rem
+            position: absolute
+            left: 80px
+            top: 80px
+          .welcomeText
+            position: absolute
+            left: 80px
+            top: 0
+            margin-top: .5rem
+            font-size: 3rem 
       .letter
         position: relative
         top: 0px

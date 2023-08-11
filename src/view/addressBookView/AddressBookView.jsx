@@ -2,7 +2,7 @@ import React, {
   useCallback
 } from 'react'
 import {
-  useNavigate 
+  useNavigate
 } from 'react-router-dom'
 import Dialog from '@mui/material/Dialog'
 import CloseIcon from '@mui/icons-material/Close'

@@ -1,32 +1,12 @@
-import React, {
-  useEffect
-} from 'react'
-import {
-  useSelector, useDispatch
-} from 'react-redux'
+import React from 'react'
 import LetterFlyAnim from '../../component/animationView/letterFlyAnim'
 import styles from './animationView.module.sass'
 
-import {
-  showOpenAnim 
-} from '../../redux/showOpenAnimSlice'
-
 const AnimationView = () => {
-  const dispatch = useDispatch()
-  const isOpenOverlay = useSelector(state => state.showOpenAnim.isOpen)
-
-  useEffect(() => {
-    dispatch(showOpenAnim(true))
-  }, [])
-
   return (
-    <div>
-      {(isOpenOverlay) && (
-        <div className={styles.animationView}>
-          <LetterFlyAnim />
-          <div className={styles.border} />
-        </div>
-      )}
+    <div className={styles.animationView}>
+      <LetterFlyAnim />
+      <div className={styles.border} />
     </div>
   )
 }

@@ -1,5 +1,5 @@
 import React, {
-  useEffect, useRef, useState
+  useEffect, useRef, useState, useMemo
 } from 'react'
 import gsap from 'gsap'
 import EmployeeBadge from '../employeeBadge'
@@ -7,9 +7,16 @@ import {
   Controller, Scene 
 } from 'react-scrollmagic'
 import {
+  useNavigate 
+} from 'react-router-dom'
+import {
   Tween
 } from 'react-gsap'
+import {
+  useSelector
+} from 'react-redux'
 import ScrollAnim from '../scrollAnim'
+import clsx from 'clsx'
 import styles from './letterFlyAnim.module.sass'
 
 import desktop from '../../../assets/image/anim/desktop.svg'
@@ -21,8 +28,24 @@ import letterMask from '../../../assets/image/anim/letterMask.png'
 import letterTriangle from '../../../assets/image/anim/letterTriangle.png'
 
 function LetterFlyAnim() {
+  const navigate = useNavigate()
   const triggerRef = useRef(null)
   const [trigger, setTrigger] = useState(triggerRef.current)
+
+  const defaultMemberData = useMemo(() => {
+    if (!localStorage.getItem('memberData') || localStorage.getItem('memberData') === 'undefined') {
+      return {
+        photo: '',
+        name: '',
+        mail: '',
+        work: '網頁前端工程師',
+      }
+    }
+    return JSON.parse(localStorage.getItem('memberData'))
+  }, [])
+  const [memberData] = useState(defaultMemberData)
+
+  const isShowOpeningAnimation = useSelector(state => state.showOpenAnim.isOpen)
 
   useEffect(() => {
     setTrigger(triggerRef.current)
@@ -64,7 +87,7 @@ function LetterFlyAnim() {
     }, 'letterMove+=0.3')
   }
 
-  const resetAnim = () => {
+  const resetOpenAnim = () => {
     let tl = gsap.timeline()
     tl.to('#mail',{
       duration: 0,
@@ -96,8 +119,66 @@ function LetterFlyAnim() {
     })
   }
 
+  const showLoadingAnim = () => {
+    let tl = gsap.timeline()
+    tl.to('#progressBar',{
+      duration: 0.6,
+      width: '100%',
+      ease: 'Power0.easeNone',
+    }).to('#progress',{
+      duration: 0.3,
+      opacity: 0,
+      delay: 0.3,
+    }).to('#welcomeText',{
+      duration: 0.3,
+      opacity: 1,
+      left: '50px',
+    }, 'welcome').to('#welcomeName',{
+      duration: 0.3,
+      opacity: 1,
+      left: '50px',
+    }, 'welcome').to('#overlayScene',{
+      delay: 1,
+      duration: 0,
+      onComplete: () => {
+        navigate('/Home', { replace: true })
+        tl.kill()
+        tl = null
+      },
+    }, 'welcome')
+  }
+
+  const resetLoadingAnim = () => {
+    let tl = gsap.timeline()
+    tl.to('#progressBar',{
+      duration: 0,
+      width: '50%',
+    }).to('#welcomeText',{
+      duration: 0,
+      left: '80px',
+      opacity: 0,
+    }).to('#overlayScene',{
+      duration: 0,
+      opacity: 0,
+      display: 'none',
+    }).to('#welcomeName',{
+      duration: 0,
+      left: '80px',
+      opacity: 0,
+      onComplete: () => {
+        tl.kill()
+        tl = null
+        showLoadingAnim()
+      },
+    })
+  }
+
   useEffect(() => {
-    resetAnim()
+    if (isShowOpeningAnimation) {
+      resetOpenAnim()
+      return
+    }
+    resetLoadingAnim()
   }, [])
 
   return (
@@ -107,26 +188,41 @@ function LetterFlyAnim() {
         <img className={styles.book} src={book} alt="" />
         <img className={styles.window} src={window} alt="" />
         <img className={styles.desktop} src={desktop} alt="" />
-        <Controller>
+        {(!isShowOpeningAnimation) && (
           <div className={styles.screen}>
-            <Scene
-              triggerHook={0.7}
-              triggerElement={trigger}
-              duration={500}
-            >
-              {progress => (
-                <Tween            
-                  to={{ right: '-120px' }}       
-                  totalProgress={progress}
-                  paused
-                  onComplete={() => showLetterAnim()}
-                >
-                  <img id={'mail'} className={styles.letter} src={letter} alt="" />
-                </Tween>    
-              )}
-            </Scene>
+            <div className={styles.loading}>
+              <div id={'progress'} className={styles.progress}>
+                <div id={'progressBar'} className={styles.progressBar} />
+              </div>
+              <div className={styles.welcome}>
+                <p id={'welcomeText'} className={styles.welcomeText}>{'welcome'}</p>
+                <p id={'welcomeName'} className={styles.name}>{memberData?.name || ''}</p>
+              </div>
+            </div>
           </div>
-        </Controller>
+        )}
+        {(isShowOpeningAnimation) && (
+          <Controller>
+            <div className={clsx(styles.screen, styles.overflow)}>
+              <Scene
+                triggerHook={0.7}
+                triggerElement={trigger}
+                duration={500}
+              >
+                {progress => (
+                  <Tween            
+                    to={{ right: '-120px' }}       
+                    totalProgress={progress}
+                    paused
+                    onComplete={() => showLetterAnim()}
+                  >
+                    <img id={'mail'} className={styles.letter} src={letter} alt="" />
+                  </Tween>    
+                )}
+              </Scene>
+            </div>
+          </Controller>
+        )}
         <img className={styles.coffee} src={coffee} alt="" />
       </div>
       <div id={'overlayScene'} className={styles.overlayScene}>
@@ -140,8 +236,10 @@ function LetterFlyAnim() {
         </div>
       </div>
       <div id={'scrollAnim'} className={styles.scrollAnim}>
-        <ScrollAnim />
-      </div> 
+        {(isShowOpeningAnimation) && (
+          <ScrollAnim />
+        )}
+      </div>
     </div>
   )
 }
