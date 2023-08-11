@@ -1,32 +1,32 @@
 {
   "files": {
-    "main.css": "/React-Mission-Tutorial/static/css/main.aaad39ac.css",
-    "main.js": "/React-Mission-Tutorial/static/js/main.e3692325.js",
+    "main.css": "/React-Mission-Tutorial/static/css/main.5f5024dd.css",
+    "main.js": "/React-Mission-Tutorial/static/js/main.626b81fc.js",
     "static/js/787.28cb0dcd.chunk.js": "/React-Mission-Tutorial/static/js/787.28cb0dcd.chunk.js",
     "static/media/welcome.png": "/React-Mission-Tutorial/static/media/welcome.06c092ad4da6e3fcff59.png",
     "static/media/letterMask.png": "/React-Mission-Tutorial/static/media/letterMask.c0a4a4d3492ec92af9e4.png",
     "static/media/react.png": "/React-Mission-Tutorial/static/media/react.e3c5f5e6d8fbd0afe01f.png",
     "static/media/letterTriangle.png": "/React-Mission-Tutorial/static/media/letterTriangle.d497f38959fa74592d64.png",
     "static/media/noImage.jpg": "/React-Mission-Tutorial/static/media/noImage.2efe78cdf6dbf909f571.jpg",
-    "static/media/window.svg": "/React-Mission-Tutorial/static/media/window.41515d0d91ef46bc66e68cb4652c1c1c.svg",
-    "static/media/book.svg": "/React-Mission-Tutorial/static/media/book.523355965fbb2d77780845a09205bb4b.svg",
-    "static/media/coffee.svg": "/React-Mission-Tutorial/static/media/coffee.385c32de32fbf313306181085f2f32a7.svg",
-    "static/media/desktop.svg": "/React-Mission-Tutorial/static/media/desktop.23cffc843f7350d2d6d524eadb70dcfa.svg",
+    "static/media/window.svg": "/React-Mission-Tutorial/static/media/window.4123bffc89fba0c04ee7fdc8740f8784.svg",
+    "static/media/book.svg": "/React-Mission-Tutorial/static/media/book.1e47cc3d81a230a36c65042ec2771a3b.svg",
+    "static/media/coffee.svg": "/React-Mission-Tutorial/static/media/coffee.b245d1c356378aeb44761eed56bac3d7.svg",
+    "static/media/desktop.svg": "/React-Mission-Tutorial/static/media/desktop.3efc5712bd743d9881a6c2d6e9f70be2.svg",
     "static/media/cg002.svg": "/React-Mission-Tutorial/static/media/cg002.91e8e489daa2aa0d6b5acb46695b7009.svg",
     "static/media/scg.svg": "/React-Mission-Tutorial/static/media/scg.0b0c8da8865e585956404ababf3d42b1.svg",
     "static/media/cg001.svg": "/React-Mission-Tutorial/static/media/cg001.4aca2d588a3c7016b1b830ab36494647.svg",
     "static/media/rocket.svg": "/React-Mission-Tutorial/static/media/rocket.9067caeee6a43eb78630b1032fdaacb8.svg",
-    "static/media/letter.svg": "/React-Mission-Tutorial/static/media/letter.11a2819ff09a926293bd8ef519c4bb07.svg",
-    "static/media/telescope.svg": "/React-Mission-Tutorial/static/media/telescope.af2934a281dbc1a2460954ac1efe1c51.svg",
-    "static/media/photo.svg": "/React-Mission-Tutorial/static/media/photo.caf5ea0f46bef8c970ce5e8c8dced684.svg",
+    "static/media/letter.svg": "/React-Mission-Tutorial/static/media/letter.e61b990eaa6e818dfa31d00a0fc08f64.svg",
+    "static/media/telescope.svg": "/React-Mission-Tutorial/static/media/telescope.5817a927d255fd2e2c511daa8494b583.svg",
+    "static/media/photo.svg": "/React-Mission-Tutorial/static/media/photo.a50e44685238333739ea1c42fb6053f4.svg",
     "static/media/star.svg": "/React-Mission-Tutorial/static/media/star.e53eb2d97434808ca48d5af57cd3e9b1.svg",
     "index.html": "/React-Mission-Tutorial/index.html",
-    "main.aaad39ac.css.map": "/React-Mission-Tutorial/static/css/main.aaad39ac.css.map",
-    "main.e3692325.js.map": "/React-Mission-Tutorial/static/js/main.e3692325.js.map",
+    "main.5f5024dd.css.map": "/React-Mission-Tutorial/static/css/main.5f5024dd.css.map",
+    "main.626b81fc.js.map": "/React-Mission-Tutorial/static/js/main.626b81fc.js.map",
     "787.28cb0dcd.chunk.js.map": "/React-Mission-Tutorial/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.aaad39ac.css",
-    "static/js/main.e3692325.js"
+    "static/css/main.5f5024dd.css",
+    "static/js/main.626b81fc.js"
   ]
 }
