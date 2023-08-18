@@ -21,6 +21,8 @@ function MemberInfoSetting(props) {
   }, [])
 
   const InfoSetting = useCallback(() => {
+    const [isShowTip, setIsShowTip] = useState(false)
+
     const [name, setName] = useState(memberData?.name || '')
     const [mail, setMail] = useState(memberData?.mail || '')
     const [work, setWork] = useState(memberData?.work || '')
@@ -28,6 +30,10 @@ function MemberInfoSetting(props) {
 
     const onFileUpload = (event) => {
       const file = event.target.files[0]
+      if ( file.size > 5 * 1024 * 1024) { // 5MB in bytes
+        setIsShowTip(true)
+        return
+      }
       const reader = new FileReader()
       reader.addEventListener('load', (e) => {
         setImgSrc(reader.result)
@@ -58,6 +64,7 @@ function MemberInfoSetting(props) {
               <div className={styles.photo}>
                 <img className={'img-fit'} src={(imgSrc === '') ? noPhoto : imgSrc} alt="" />
               </div>
+              {(isShowTip) && (<p className={styles.tip}>{'*圖片上限 5MB.'}</p>)}
               <a>
                 <Button
                   className={styles.uploadBtn}
