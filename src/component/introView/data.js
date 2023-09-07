@@ -5,21 +5,21 @@ import scg from '../../assets/image/intro/scg.svg'
 const data = {
   // 星球
   planets: [{
-    title: '808 / CG001',
+    title: '星球A',
     img: cg001,
-    members: ['Ken', 'Kiki', 'Peggy', '小嫺'],
+    members: ['Vivi', 'Vivi', 'Vivi'],
     color: '#608CBE',
     width: '250px',
   }, {
-    title: 'GBoa / CG002',
+    title: '星球B',
     img: cg002,
-    members: ['力維', '美寶', 'Carol'],
+    members: ['Vivi', 'Vivi'],
     color: '#BE8260',
     width: '250px',
   }, {
-    title: 'Pocket / SCG',
+    title: '星球C',
     img: scg,
-    members: [ '西西', 'Vivi', '魯斯'],
+    members: ['Vivi', 'Vivi'],
     color: '#6BA14E',
     width: '300px',
   }],

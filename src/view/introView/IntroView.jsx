@@ -118,7 +118,7 @@ function IntroView() {
                   onInit={(typewriter) => {
                     typewriter
                       .pauseFor(1800)
-                      .typeString('弈樂網頁前端團隊')
+                      .typeString('React 網頁前端團隊')
                       .start()
                   }}
                 />
