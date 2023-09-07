@@ -54,9 +54,11 @@ const RouterPage = () => {
     }
     if (!localStorage.getItem('isGetPersonalWebsiteMission') || localStorage.getItem('isGetPersonalWebsiteMission') === 'undefined') {
       hideLinkAnim()
+      dispatch(showOpenAnim(false))
       navigate('/Intro', { replace: true })
       return
     }
+    dispatch(showOpenAnim(false))
     navigate('/Animation', { replace: true })
   }, [])
 
