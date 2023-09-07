@@ -4,7 +4,7 @@ import {
 export const showOpenAnimSlice = createSlice({
   name: 'showOpenAnim',
   initialState: {
-    isOpen: false,
+    isOpen: null,
   },
   reducers: {
     showOpenAnim: (state, action) => {

@@ -174,12 +174,13 @@ function LetterFlyAnim() {
   }
 
   useEffect(() => {
+    if (isShowOpeningAnimation === null) return
     if (isShowOpeningAnimation) {
       resetOpenAnim()
       return
     }
     resetLoadingAnim()
-  }, [])
+  }, [isShowOpeningAnimation])
 
   return (
     <div className={styles.letterFlyAnim}>
